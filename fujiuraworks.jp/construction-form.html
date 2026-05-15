@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工事受付フォーム — 藤浦製作所</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@700&family=Kiwi+Maru:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #ffffff;
+      --surface:      #f7f7f5;
+      --border:       #BDC0BA;
+      --border-light: #e8e8e4;
+      --text:         #1f1f1f;
+      --text-muted:   #1f1f1f;
+      --white:        #ffffff;
+      --radius:       10px;
+      --font-display: "Kaisei Opti", serif;
+      --font-body:    "Kiwi Maru", serif;
+      --font-sub:     "Kiwi Maru", serif;
+      --max-w:        1000px;
+      --ease:         0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #1a1a1a;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page-content {
+      background: var(--bg);
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .header-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.02rem;
+    }
+
+    /* ─── LAYOUT ─── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 24px 100px;
+    }
+
+    /* ─── PAGE HEADER ─── */
+    .page-header { margin-bottom: 56px; }
+
+    @media (max-width: 600px) {
+      .header-inner   { padding: 0 20px; }
+      .container      { padding: 32px 20px 72px; }
+      .page-header    { margin-bottom: 28px; }
+      .progress-wrap  { margin-bottom: 28px; margin-bottom: 28px; gap: 4px; }
+      .form-section   { margin-bottom: 28px; padding-bottom: 28px; }
+      .form-section-title { margin-bottom: 16px; }
+      .field          { margin-bottom: 24px; }
+      .submit-area    { padding-top: 12px; }
+      footer          { padding: 32px 20px 24px; }
+    }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      margin-bottom: 20px;
+    }
+    .section-label::before { content: '— '; }
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      line-height: 1.3;
+      letter-spacing: 0.04rem;
+      margin-bottom: 16px;
+    }
+    .page-header p {
+      font-family: var(--font-sub);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+
+    /* ─── PROGRESS ─── */
+    .progress-wrap {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 48px;
+    }
+    .progress-bar {
+      flex: 1;
+      height: 2px;
+      background: var(--border-light);
+      border-radius: 2px;
+      transition: background 0.4s ease;
+    }
+    .progress-bar.active { background: var(--text); }
+
+    /* ─── FORM SECTIONS ─── */
+    .form-section {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .form-section:last-of-type { border-bottom: none; }
+    .form-section-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.08rem;
+      margin-bottom: 24px;
+    }
+
+    /* ─── FIELDS ─── */
+    .field { margin-bottom: 20px; }
+    .field:last-child { margin-bottom: 0; }
+
+    .field > label {
+      display: block;
+      font-family: var(--font-sub);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .field > label .req {
+      color: var(--text);
+      margin-left: 4px;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+    }
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      font-family: var(--font-body);
+      font-weight: 400;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color var(--ease), background var(--ease);
+      -webkit-appearance: none;
+    }
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--text);
+      background: var(--surface);
+    }
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #999;
+      font-size: 0.875rem;
+    }
+    .field textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.8;
+    }
+    .field .hint {
+      font-family: var(--font-sub);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 600px) {
+      .row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-bottom: 0;
+      }
+      .row .field:last-child { margin-bottom: 24px; }
+    }
+
+    /* ─── RADIO PILLS ─── */
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .radio-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 18px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: var(--font-sub);
+      font-size: 0.875rem;
+      font-weight: 400;
+      user-select: none;
+    }
+    .radio-pill:hover {
+      border-color: var(--text);
+      color: var(--text);
+    }
+    .radio-pill input { display: none; }
+    .radio-pill:has(input:checked) {
+      background: var(--text);
+      border-color: var(--text);
+      color: var(--white);
+    }
+
+    /* ─── BRANCHED FIELDS (アニメーション展開) ─── */
+    .branch-field {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      transition: grid-template-rows 0.35s ease, opacity 0.3s ease, margin-top 0.35s ease;
+      margin-top: 0;
+      overflow: hidden;
+    }
+    .branch-field.open {
+      grid-template-rows: 1fr;
+      opacity: 1;
+      margin-top: 20px;
+    }
+    .branch-field-inner { min-height: 0; }
+
+    /* ─── NOTICE BOXES ─── */
+    .notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .notice-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .notice p {
+      font-family: var(--font-sub);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .notice strong { color: var(--text); font-weight: 500; }
+
+    /* ─── CHAR COUNT ─── */
+    .char-count {
+      font-family: var(--font-sub);
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 6px;
+      transition: color var(--ease);
+    }
+    .char-count.near { color: var(--text-muted); }
+
+    /* ─── FILE INPUT ─── */
+    .file-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-family: var(--font-sub);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      transition: border-color var(--ease), background var(--ease), color var(--ease);
+    }
+    .file-label:hover {
+      border-color: var(--text);
+      background: var(--surface);
+      color: var(--text);
+    }
+    .file-label svg { flex-shrink: 0; opacity: 0.45; transition: opacity var(--ease); }
+    .file-label:hover svg { opacity: 1; }
+    .file-input { display: none; }
+
+    /* ─── SUBMIT ─── */
+    .submit-area {
+      padding-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn-submit {
+      font-family: var(--font-sub);
+      width: 100%;
+      padding: 16px 28px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--white);
+      background: var(--text);
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      letter-spacing: 0.04rem;
+      transition: background var(--ease), transform var(--ease);
+    }
+    .btn-submit:hover  { background: #444; transform: translateY(-1px); }
+    .btn-submit:active { transform: translateY(0); }
+    .submit-note {
+      font-family: var(--font-sub);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.7;
+    }
+    .submit-note a { color: inherit; }
+
+    /* ─── SUCCESS ─── */
+    .success-screen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 64px 0;
+      gap: 24px;
+      animation: fadeUp 0.5s ease both;
+    }
+    .success-screen.show { display: flex; }
+    .success-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1.5px solid var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .success-screen h2 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      letter-spacing: 0.06rem;
+    }
+    .success-screen p {
+      font-family: var(--font-sub);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+    .btn-back-home {
+      font-family: var(--font-sub);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      margin-top: 8px;
+      transition: color var(--ease), border-color var(--ease);
+    }
+    .btn-back-home:hover { color: var(--text); border-color: var(--text); }
+
+    /* ─── FOOTER ─── */
+    footer { background: #1a1a1a; padding: 32px 24px 24px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .footer-top { display: flex; flex-direction: column; gap: 8px; }
+    .footer-logo { font-family: var(--font-display); font-size: 1.4rem; color: #fff; text-decoration: none; letter-spacing: 0.05rem; transition: opacity 0.2s ease; }
+    .footer-logo:hover { opacity: 0.7; }
+    .footer-tagline { font-size: 0.8rem; color: #888; font-family: var(--font-sub); }
+    .footer-mid { display: flex; flex-direction: column; gap: 24px; }
+    @media (min-width: 520px) { .footer-mid { flex-direction: row; justify-content: space-between; align-items: flex-start; } }
+    .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+    .footer-nav a { font-family: var(--font-sub); font-size: 0.875rem; color: #aaa; text-decoration: none; transition: color 0.2s ease; }
+    .footer-nav a:hover { color: #fff; }
+    .footer-bottom { display: flex; flex-direction: column; gap: 12px; }
+    @media (min-width: 520px) { .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; } }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 0.78rem; color: #666; text-decoration: none; transition: color 0.2s ease; }
+    .footer-links a:hover { color: #aaa; }
+    .footer-copy { font-size: 0.78rem; color: #555; font-family: var(--font-sub); }
+
+    /* ─── MODAL ─── */
+    .modal-overlay { position: fixed; inset: 0; z-index: 20000; background: rgba(255,255,255,0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); display: flex; align-items: flex-end; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    @media (min-width: 600px) { .modal-overlay { align-items: center; } }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-panel { background: #fff; width: 100%; max-width: 1000px; min-height: 92vh; max-height: 92vh; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none; border-radius: var(--radius); padding: 48px 20px 72px; position: relative; transform: translateY(24px); transition: transform 0.35s cubic-bezier(0.32,0.72,0,1); box-shadow: 0 4px 16px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
+    .modal-panel::-webkit-scrollbar { display: none; }
+    .modal-scroll-end { text-align: center; padding: 32px 0 8px; font-family: "Kiwi Maru", serif; font-size: 0.7rem; letter-spacing: 0.25em; color: #999; opacity: 0; transition: opacity 0.5s ease; }
+    .modal-scroll-end.visible { opacity: 1; }
+    @media (min-width: 600px) { .modal-panel { padding: 56px 40px 80px; transform: translateY(16px); } }
+    .modal-overlay.active .modal-panel { transform: translateY(0); }
+    .modal-close { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .modal-close span { position: absolute; width: 20px; height: 1.5px; background: var(--text); border-radius: 2px; }
+    .modal-close span:nth-child(1) { transform: rotate(45deg); }
+    .modal-close span:nth-child(2) { transform: rotate(-45deg); }
+    .modal-close:hover span { background: #888; }
+    .modal-body { display: flex; flex-direction: column; gap: 40px; max-width: 600px; margin: auto; width: 100%; }
+    .modal-header-block { display: flex; flex-direction: column; gap: 8px; }
+    .modal-section-label { font-size: 0.78rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1rem; color: var(--text); font-family: var(--font-display); }
+    .modal-section-label::before { content: '— '; }
+    .modal-title { font-family: var(--font-display); font-size: clamp(1rem, 0.818rem + 0.91vw, 1.5rem); line-height: 1.3; letter-spacing: 0.05rem; }
+    .modal-section { display: flex; flex-direction: column; gap: 16px; }
+    .modal-content-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+    .modal-block h3 { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.04rem; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .modal-block p { font-size: 0.9rem; line-height: 1.85; color: var(--text); font-weight: 300; letter-spacing: -0.02rem; }
+    .modal-dl { display: flex; flex-direction: column; }
+    .modal-dl-row { display: grid; grid-template-columns: 5.5em 1fr; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+    .modal-dl-row:last-child { border-bottom: none; }
+    .modal-dl-row dt { color: #999; font-weight: 400; font-family: var(--font-sub); white-space: nowrap; }
+    .modal-dl-row dd { color: var(--text); font-weight: 300; line-height: 1.6; }
+    .modal-list { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+    .modal-list li { font-size: 0.9rem; line-height: 1.7; color: var(--text); font-weight: 300; padding-left: 1em; position: relative; }
+    .modal-list li::before { content: '▸'; position: absolute; left: 0; }
+    .modal-dl--pipe { gap: 6px; }
+    .modal-dl--pipe .modal-dl-row { display: flex; align-items: center; gap: 0; border-bottom: none; padding: 0; grid-template-columns: none; font-family: var(--font-sub); font-size: 0.85rem; }
+    @media (max-width: 480px) {
+      .modal-section-label { font-size: 0.72rem; }
+      .modal-dl--pipe .modal-dl-row { flex-direction: column; align-items: flex-start; gap: 2px; padding: 8px 0; border-bottom: 0.5px dashed var(--border); }
+      .modal-dl--pipe .modal-dl-row:last-child { border-bottom: none; }
+      .modal-dl--pipe .modal-dl-row dt { font-size: 0.75rem; color: #aaa; text-align: left; padding-left: 6px; border-left: 1.5px solid var(--border); margin-bottom: 2px; }
+      .modal-dl--pipe .modal-dl-row dt::before { content: none; }
+      .modal-dl--pipe .modal-dl-row dt::after { content: none; }
+      .modal-dl--pipe .modal-dl-row dd { text-align: left; }
+    }
+    .modal-dl--pipe .modal-dl-row dt { font-family: var(--font-sub); font-weight: 400; color: #999; white-space: nowrap; flex-shrink: 0; }
+    .modal-dl--pipe .modal-dl-row dd { font-family: var(--font-sub); font-weight: 400; color: #999; white-space: nowrap; }
+    .modal-dl--pipe .modal-dl-row dt::after { content: '｜'; margin: 0 6px; color: var(--border); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .page-header  { animation: fadeUp 0.5s ease both; }
+    .form-section { animation: fadeUp 0.5s ease both; }
+    .form-section:nth-child(2) { animation-delay: 0.06s; }
+    .form-section:nth-child(3) { animation-delay: 0.12s; }
+    .form-section:nth-child(4) { animation-delay: 0.18s; }
+
+    /* ─── LOADING OVERLAY ─── */
+    .loading-overlay { position: fixed; inset: 0; z-index: 99999; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; opacity: 1; transition: opacity 0.8s ease; pointer-events: all; }
+    .loading-overlay.hidden { opacity: 0; pointer-events: none; }
+    .loading-name { font-family: "Kaisei Opti", serif; font-size: clamp(1.2rem, 4vw, 1.8rem); color: #1f1f1f; letter-spacing: 0.12em; }
+    .loading-plane-wrap { width: 160px; height: 48px; position: relative; overflow: visible; }
+    .loading-plane { position: absolute; width: 28px; height: 28px; top: 50%; left: 50%; color: #1f1f1f; animation: planeFly 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    @keyframes planeFly { 0% { transform: translate(-100px, 12px) rotate(40deg); opacity: 0; } 15% { opacity: 1; } 50% { transform: translate(0px, -10px) rotate(40deg); opacity: 1; } 85% { opacity: 1; } 100% { transform: translate(100px, 12px) rotate(40deg); opacity: 0; } }
+    .loading-label { font-family: "Kiwi Maru", serif; font-size: 0.75rem; letter-spacing: 0.15em; color: #999; }
+  </style>
+</head>
+<body>
+
+<!-- LOADING OVERLAY -->
+<div class="loading-overlay hidden" id="loading-overlay">
+  <span class="loading-name">藤浦製作所</span>
+  <div class="loading-plane-wrap">
+    <svg class="loading-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+    </svg>
+  </div>
+  <span class="loading-label">送信中</span>
+</div>
+
+<div class="page-content">
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">藤浦製作所</a>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ─── SUCCESS SCREEN ─── -->
+  <div class="success-screen" id="success">
+    <div class="success-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <h2>工事のご依頼を受け付けました</h2>
+    <p>内容を確認のうえ、当日もしくは翌日中に<br>担当者よりご連絡いたします。<br>急ぎの場合は 070-4317-7165 までお電話ください。</p>
+    <a href="index.html" class="btn-back-home">トップページへ戻る</a>
+  </div>
+
+  <!-- ─── FORM ─── -->
+  <div id="form-wrap">
+
+    <div class="page-header">
+      <h1>工事・リフォーム<br>相談フォーム</h1>
+      <p>各種蛇口やトイレなどの器具交換など、お気軽にご相談ください。<br>内容を確認のうえ、担当者よりご連絡いたします。</p>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-bar" id="p1"></div>
+      <div class="progress-bar" id="p2"></div>
+      <div class="progress-bar" id="p3"></div>
+    </div>
+
+    <form id="consult-form" novalidate>
+
+      <!-- ── SECTION 1: 工事内容 ── -->
+      <div class="form-section">
+        <div class="form-section-title">ご相談の内容</div>
+
+        <!-- 工事の種類 -->
+        <div class="field">
+          <label>工事の種類<span class="req">必須</span></label>
+          <div class="radio-group">
+            <label class="radio-pill"><input type="radio" name="category" value="faucet" onchange="onCategory(this)">蛇口・器具の交換</label>
+            <label class="radio-pill"><input type="radio" name="category" value="faucet" onchange="onCategory(this)">水回りリフォーム</label>
+            <label class="radio-pill"><input type="radio" name="category" value="other"  onchange="onCategory(this)">その他</label>
+          </div>
+
+          <!-- 分岐①：蛇口・器具の交換 → 場所を選択 -->
+          <div class="branch-field" id="branch-location">
+            <div class="branch-field-inner">
+              <div class="field">
+                <label>ご相談の場所<span class="req">必須</span></label>
+                <div class="radio-group">
+                  <label class="radio-pill"><input type="radio" name="location" value="kitchen">キッチン</label>
+                  <label class="radio-pill"><input type="radio" name="location" value="bath">浴室</label>
+                  <label class="radio-pill"><input type="radio" name="location" value="toilet">トイレ</label>
+                  <label class="radio-pill"><input type="radio" name="location" value="washroom">洗面所</label>
+                  <label class="radio-pill"><input type="radio" name="location" value="outdoor">屋外・庭</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 状況の詳細 -->
+        <div class="field">
+          <label>ご依頼の内容をお聞かせください<span class="req">必須</span></label>
+          <textarea id="detail" name="detail"
+            placeholder="例：キッチンの蛇口を交換したいです。メーカーや品番がわかる場合は記載していただくとスムーズです。"
+            oninput="updateChar(this); updateProgress()"></textarea>
+          <div class="char-count" id="char-count">0 / 500</div>
+          <div class="hint">現在の器具のメーカー・品番・症状などをご記入いただくとスムーズです</div>
+        </div>
+
+        <!-- 写真 -->
+        <div class="field">
+          <label>写真（あれば）</label>
+          <label class="file-label" for="photo-input">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <span id="file-label-text">写真を選択する（最大5枚）</span>
+          </label>
+          <input type="file" id="photo-input" class="file-input" accept="image/*" multiple onchange="onFileChange(this)">
+          <div class="hint">現在の器具の写真があると、より正確にご案内できます。</div>
+        </div>
+      </div>
+
+      <!-- ── SECTION 2: ご連絡先 ── -->
+      <div class="form-section">
+        <div class="form-section-title">ご連絡先</div>
+
+        <div class="row">
+          <div class="field">
+            <label>お名前<span class="req">必須</span></label>
+            <input type="text" name="name" placeholder="山田 太郎" required oninput="updateProgress()">
+          </div>
+          <div class="field">
+            <label>フリガナ</label>
+            <input type="text" name="kana" placeholder="ヤマダ タロウ">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>工事場所の住所<span class="req">必須</span></label>
+          <input type="text" name="address" placeholder="兵庫県たつの市○○" required oninput="updateProgress()">
+          <div class="hint">※番地まで入力してください</div>
+        </div>
+
+        <div class="field">
+          <label>電話番号<span class="req">必須</span></label>
+          <input type="tel" name="tel" placeholder="090-0000-0000" required oninput="updateProgress()">
+        </div>
+      </div>
+
+      <!-- ── SECTION 3: ご都合 ── -->
+      <div class="form-section">
+        <div class="form-section-title">ご都合</div>
+
+        <div class="field">
+          <label>ご連絡方法<span class="req">必須</span></label>
+          <div class="radio-group">
+            <label class="radio-pill"><input type="radio" name="reply" value="line">LINEで返信</label>
+            <label class="radio-pill"><input type="radio" name="reply" value="tel">電話で折り返し</label>
+            <label class="radio-pill"><input type="radio" name="reply" value="any">どちらでも可</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>連絡がつきやすい時間帯</label>
+          <div class="radio-group">
+            <label class="radio-pill"><input type="radio" name="time" value="am">午前中</label>
+            <label class="radio-pill"><input type="radio" name="time" value="pm">午後</label>
+            <label class="radio-pill"><input type="radio" name="time" value="eve">夕方以降</label>
+            <label class="radio-pill"><input type="radio" name="time" value="any">いつでも</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>その他ご要望</label>
+          <textarea name="note" placeholder="例：平日の午前中のみ在宅です。など" style="min-height:80px"></textarea>
+        </div>
+      </div>
+
+      <div class="submit-area">
+        <button type="submit" class="btn-submit">工事を依頼する</button>
+        <p class="submit-note">
+          内容を確認のうえ、当日もしくは翌日中にご連絡いたします。<br>
+          お急ぎの場合は 070-4317-7165 までお電話ください。
+        </p>
+      </div>
+
+    </form>
+  </div><!-- /#form-wrap -->
+
+</div><!-- /.container -->
+
+</div><!-- /.page-content -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">藤浦製作所</a>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-links">
+        <a href="#" id="open-privacy">プライバシーポリシー</a>
+      </div>
+      <span class="footer-copy">© 2026 Fujiura Works</span>
+    </div>
+  </div>
+</footer>
+
+<!-- PRIVACY POLICY MODAL -->
+<div class="modal-overlay" id="modal-privacy" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-label="プライバシーポリシー">
+    <button class="modal-close" id="close-privacy" aria-label="閉じる">
+      <span></span><span></span>
+    </button>
+    <div class="modal-body">
+      <div class="modal-header-block">
+        <div class="modal-section-label">Privacy Policy</div>
+        <h2 class="modal-title">プライバシーポリシー</h2>
+      </div>
+      <div class="modal-block">
+        <p>藤浦製作所（以下「当社」）は、個人情報の保護に関する法令等を遵守するとともに、以下にプライバシーポリシーを定め、個人情報の適正な取り扱いに努めます。</p>
+      </div>
+      <div class="modal-content-grid">
+        <div class="modal-block">
+          <h3>（1）事業者情報</h3>
+          <dl class="modal-dl modal-dl--pipe">
+            <div class="modal-dl-row"><dt>屋号</dt><dd>藤浦製作所</dd></div>
+            <div class="modal-dl-row"><dt>代表者</dt><dd>藤浦 高</dd></div>
+            <div class="modal-dl-row"><dt>所在地</dt><dd>兵庫県たつの市誉田町福田467-6</dd></div>
+            <div class="modal-dl-row"><dt>電話</dt><dd>070-4317-7165</dd></div>
+          </dl>
+        </div>
+        <div class="modal-block">
+          <h3>（2）個人情報の収集と利用目的</h3>
+          <p>当社は、以下の目的のために必要な範囲で個人情報を収集します。利用目的を変更する場合は、変更後の内容を公表またはご本人へ通知します。</p>
+          <ul class="modal-list">
+            <li>お問い合わせ・ご相談への回答および連絡のため</li>
+            <li>お見積り・工事の実施・施工管理のため</li>
+            <li>工事完了後のアフターフォローおよびご請求のため</li>
+            <li>当社サービスに関するご案内のため</li>
+          </ul>
+        </div>
+        <div class="modal-block"><h3>（3）法令の遵守</h3><p>当社は個人情報を取り扱うにあたり、個人情報の保護に関する法律および関係する法令、ガイドラインを遵守します。</p></div>
+        <div class="modal-block"><h3>（4）個人情報の管理・保護</h3><p>ご提供いただいた個人情報は、管理責任者が適切に管理し、漏洩や紛失等の防止に努めます。また、外部からの不正アクセスや破壊、改ざん等の危険に対して安全対策を実施し、個人情報の保護に努めます。</p></div>
+        <div class="modal-block"><h3>（5）個人情報の利用</h3><p>当社はご本人の同意を得ないで、利用目的の達成に必要な範囲を超えて個人情報を取り扱いません。</p></div>
+        <div class="modal-block"><h3>（6）個人情報の第三者への提供</h3><p>当社はご本人の同意を得ないで、業務委託先以外の第三者に開示・提供することはありません。ただし、法令により開示を求められた場合を除きます。</p></div>
+        <div class="modal-block"><h3>（7）個人情報の開示・訂正等</h3><p>個人情報につき開示、訂正等の請求があった場合は、その請求がご本人またはその代理人によるものであることを確認した上で、必要かつ合理的な範囲で対応いたします。</p></div>
+        <div class="modal-block"><h3>（8）お問い合わせ窓口</h3><p>個人情報の取り扱いに関するお問い合わせは、<span style="font-family:'Kiwi Maru', serif; color:#999;">藤浦製作所（TEL:070-4317-7165）</span>までご連絡ください。</p></div>
+        <div class="modal-block"><p style="font-size:0.8rem; color:#999; text-align:right; font-family:'Kiwi Maru',serif;">制定：2026年5月1日</p></div>
+      </div>
+      <div class="modal-scroll-end">scroll end</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── 分岐テキスト設定 ──
+  const PLACEHOLDERS = {
+    faucet: '例：キッチンの蛇口から水漏れがあり、交換したいです。メーカーや品番がわかる場合はご記載ください。',
+    other:  '例：浴室のシャワーヘッドを交換したいのですが、対応していますか？など自由にご記入ください。',
+  };
+
+  // ── 分岐制御 ──
+  function onCategory(el) {
+    const v = el.value;
+
+    // 分岐を開閉
+    const locBranch = document.getElementById('branch-location');
+    if (v === 'faucet') {
+      locBranch.classList.add('open');
+    } else {
+      locBranch.classList.remove('open');
+      document.querySelectorAll('input[name="location"]').forEach(r => r.checked = false);
+    }
+
+    // プレースホルダーを切り替え
+    const textarea = document.getElementById('detail');
+    textarea.placeholder = PLACEHOLDERS[v] || PLACEHOLDERS.other;
+
+    updateProgress();
+  }
+
+  // ── 文字数カウント ──
+  function updateChar(el) {
+    const n = Math.min(el.value.length, 500);
+    el.value = el.value.slice(0, 500);
+    const counter = document.getElementById('char-count');
+    counter.textContent = n + ' / 500';
+    counter.classList.toggle('near', n > 400);
+  }
+
+  // ── ファイル選択表示 ──
+  function onFileChange(input) {
+    const count = input.files.length;
+    document.getElementById('file-label-text').textContent =
+      count > 0 ? count + '枚選択中' : '写真を選択する（最大5枚）';
+  }
+
+  // ── プログレスバー ──
+  function updateProgress() {
+    const category = document.querySelector('input[name="category"]:checked');
+    const detail   = document.getElementById('detail').value.trim();
+    const name     = document.querySelector('input[name="name"]').value.trim();
+    const address  = document.querySelector('input[name="address"]').value.trim();
+    const tel      = document.querySelector('input[name="tel"]').value.trim();
+
+    const needsLocation = category?.value === 'faucet';
+    const location = document.querySelector('input[name="location"]:checked');
+
+    let done = 0;
+    const step1ok = category && detail && (!needsLocation || location);
+    if (step1ok)              done = 1;
+    if (done >= 1 && name)    done = 2;
+    if (done >= 2 && address && tel) done = 3;
+
+    for (let i = 1; i <= 3; i++) {
+      document.getElementById('p' + i).classList.toggle('active', i <= done);
+    }
+  }
+
+  // 場所ラジオが変わったときもプログレスを更新
+  document.querySelectorAll('input[name="location"]').forEach(r => {
+    r.addEventListener('change', updateProgress);
+  });
+
+  // ── バリデーション & 送信 ──
+  // ▼ GASのデプロイURLをここに貼り付けてください
+  const MAKE_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbytsNLjKZ3yCOlg5LMqpmLgGrbYomgTeRMgZv6knH-nqCSsjwGHLfjCaVjywdbZUPacOg/exec';
+
+  document.getElementById('consult-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const category = document.querySelector('input[name="category"]:checked');
+    const detail   = document.getElementById('detail').value.trim();
+    const name     = document.querySelector('input[name="name"]').value.trim();
+    const address  = document.querySelector('input[name="address"]').value.trim();
+
+    const needsLocation = category?.value === 'faucet';
+    const location = document.querySelector('input[name="location"]:checked');
+
+    if (!category) {
+      alert('工事の種類を選択してください。'); return;
+    }
+    if (needsLocation && !location) {
+      alert('交換したい場所を選択してください。'); return;
+    }
+    if (!detail) {
+      alert('ご依頼の内容をご記入ください。'); return;
+    }
+    if (!name) {
+      alert('お名前をご記入ください。'); return;
+    }
+    if (!address) {
+      alert('工事場所の住所をご記入ください。'); return;
+    }
+    const tel = document.querySelector('input[name="tel"]').value.trim();
+    if (!tel) {
+      alert('電話番号をご記入ください。'); return;
+    }
+
+    // ── 送信中は二重送信を防止 ──
+    const btn = document.querySelector('.btn-submit');
+    btn.disabled = true;
+    const loadingOverlay = document.getElementById('loading-overlay');
+    loadingOverlay.classList.remove('hidden');
+
+    // ── フォームデータを組み立て ──
+    const CATEGORY_LABELS = {
+      faucet: '蛇口・器具の交換', other: 'その他・わからない'
+    };
+    const LOCATION_LABELS = {
+      kitchen: 'キッチン', bath: '浴室', toilet: 'トイレ',
+      washroom: '洗面所', outdoor: '屋外・庭', unknown: 'わからない'
+    };
+    const REPLY_LABELS = { line: 'LINEで返信', tel: '電話で折り返し', any: 'どちらでも可' };
+    const TIME_LABELS  = { am: '午前中', pm: '午後', eve: '夕方以降', any: 'いつでも' };
+
+    const getValue = (name) => document.querySelector(`input[name="${name}"]:checked`)?.value || '';
+    const getText  = (name) => document.querySelector(`[name="${name}"]`)?.value.trim() || '';
+
+    // ── 写真をCanvasで圧縮してBase64に変換 ──
+    const photoInput = document.getElementById('photo-input');
+    const photoFiles = photoInput.files;
+    const photos = [];
+
+    if (photoFiles.length > 0) {
+      const compressImage = (file) => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            const MAX = 1200;
+            let w = img.width, h = img.height;
+            if (w > h && w > MAX) { h = Math.round(h * MAX / w); w = MAX; }
+            else if (h > MAX)     { w = Math.round(w * MAX / h); h = MAX; }
+            const canvas = document.createElement('canvas');
+            canvas.width = w; canvas.height = h;
+            canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+            const compressed = canvas.toDataURL('image/jpeg', 0.7);
+            resolve({ name: file.name.replace(/\.[^.]+$/, '.jpg'), type: 'image/jpeg', data: compressed.split(',')[1] });
+          };
+          img.onerror = reject;
+          img.src = e.target.result;
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+      const maxFiles = Math.min(photoFiles.length, 5);
+      for (let i = 0; i < maxFiles; i++) {
+        photos.push(await compressImage(photoFiles[i]));
+      }
+    }
+
+    const payload = {
+      category : CATEGORY_LABELS[category.value]     || category.value,
+      location : LOCATION_LABELS[getValue('location')] || '（なし）',
+      detail   : detail,
+      name     : name,
+      kana     : getText('kana') || '（未入力）',
+      address  : address,
+      tel      : getText('tel')  || '（未入力）',
+      reply    : REPLY_LABELS[getValue('reply')] || '（未選択）',
+      time     : TIME_LABELS[getValue('time')]   || '（未選択）',
+      note     : getText('note') || '（なし）',
+      photos   : photos,
+    };
+
+    try {
+      await fetch(MAKE_WEBHOOK_URL, {
+        method : 'POST',
+        mode   : 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body   : JSON.stringify(payload),
+      });
+
+      loadingOverlay.classList.add('hidden');
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('success').classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    } catch (err) {
+      console.error('送信エラー:', err);
+      loadingOverlay.classList.add('hidden');
+      alert('送信中にエラーが発生しました。\nお手数ですが、お電話（070-4317-7165）にてご連絡ください。');
+      btn.disabled = false;
+    }
+  });
+
+  // ── Privacy Policy モーダル ──
+  const modalPrivacy = document.getElementById('modal-privacy');
+  const openPrivacy  = document.getElementById('open-privacy');
+  const closePrivacy = document.getElementById('close-privacy');
+
+  openPrivacy.addEventListener('click', e => {
+    e.preventDefault();
+    modalPrivacy.classList.add('active');
+    modalPrivacy.setAttribute('aria-hidden', 'false');
+    modalPrivacy.querySelector('.modal-panel').scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  });
+
+  closePrivacy.addEventListener('click', () => {
+    modalPrivacy.classList.remove('active');
+    modalPrivacy.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  });
+
+  modalPrivacy.addEventListener('click', e => {
+    if (e.target === modalPrivacy) {
+      modalPrivacy.classList.remove('active');
+      modalPrivacy.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modalPrivacy.classList.contains('active')) {
+      modalPrivacy.classList.remove('active');
+      modalPrivacy.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // ── モーダル scroll end ──
+  document.querySelectorAll('.modal-panel').forEach(panel => {
+    const end = panel.querySelector('.modal-scroll-end');
+    if (!end) return;
+    panel.addEventListener('scroll', () => {
+      const atBottom = panel.scrollHeight - panel.scrollTop - panel.clientHeight < 40;
+      end.classList.toggle('visible', atBottom);
+    }, { passive: true });
+  });
+</script>
+
+</body>
+</html>

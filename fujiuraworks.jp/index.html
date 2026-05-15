@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>藤浦製作所 - たつの市の水まわり工事は当店へ</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@700&family=Kiwi+Maru:wght@300;500&family=Noto+Sans+JP:wght@100..900&family=Shippori+Mincho:wght@700&family=Zen+Antique&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOADING OVERLAY -->
+<div class="loading-overlay" id="loading-overlay">
+  <span class="loading-name">藤浦製作所</span>
+  <div class="loading-line"><div class="loading-line-bar"></div></div>
+</div>
+
+<div class="page-content">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">ProductName</a>
+      <button class="menu-toggle" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-panel">
+      <button class="nav-close" aria-label="メニューを閉じる">
+        <span></span>
+        <span></span>
+      </button>
+      <a href="#" class="logo nav-logo">ProductName</a>
+      <div class="nav-links-group">
+        <a href="#About">About</a>
+        <a href="#Service">Service</a>
+        <a href="#Flow">Flow</a>
+      </div>
+      <a href="#" class="btn-nav" id="open-contact">相談する</a>
+      <div class="nav-legal">
+        <a href="#" id="open-about-nav">事業者情報</a>
+        <a href="#" id="open-privacy-nav">プライバシーポリシー</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO IMAGE -->
+  <div class="hero-image">
+    <div class="hero-image-inner">
+      <div class="image-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/>
+        </svg>
+        <span>スクリーンショットをここに配置</span>
+      </div>
+      <div class="hero-overlay">
+        <h1>心地よい暮らしと<br class="sp-br">安らぎの住まいを<br class="sp-br">水道でつなぐ</h1>
+      </div>
+    </div>
+    <div class="scroll-indicator" id="scroll-indicator">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-line"><div class="scroll-line-bar"></div></div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- ABOUT SECTION -->
+    <section id="About">
+      <div class="section-label">About</div>
+      <div class="showcase-item">
+        <div class="showcase-img">画像エリア</div>
+        <div class="showcase-text">
+          <h2>はじめまして<br>藤浦製作所です</h2>
+          <p>私たちの暮らしに欠かせない水道。その水道を維持していく仕事に、誇りと責任を持って取り組んでいます。当たり前だけど大切な水道のこと、もしもお困りのことがあれば、ぜひ当社にご相談ください。</p>
+          <a href="#" class="btn-secondary" id="open-about">藤浦製作所について</a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SERVICE SECTION -->
+    <section id="Service">
+      <div class="section-label">Service</div>
+      <div class="showcase-item reverse">
+        <div class="showcase-img">画像エリア</div>
+        <div class="showcase-text">
+          <h2>私たちにできること</h2>
+          <p>住宅の水まわりや水道のこと、なんでもご相談ください。お客様にご納得いただける解決方法を提案します。</p>
+        </div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>水漏れ調査／修理</h3>
+          <p>経年劣化にともない、蛇口などの水まわり器具や水道配管から水漏れ（漏水）が発生することがあります。こうした水漏れを調査し発見することで、修理やその後の対策につなげます。「どこで水漏れしているか分からない」といった場合もお任せください。</p>
+        </div>
+        <div class="feature-card">
+          <h3>器具の取替え／リフォーム</h3>
+          <p>蛇口やトイレなど水まわり器具の修繕や取替えを承っています。より使いやすく快適に、お客様のご要望に沿った提案をいたします。水道屋の知識を活かした水まわりリフォーム工事もお任せください。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- AREA SECTION -->
+    <section id="Area">
+      <div class="section-label">Area</div>
+      <div class="showcase-item">
+        <div class="showcase-img"><img src="img/map.png" alt="エリア地図"></div>
+        <div class="showcase-text">
+          <h2>対応エリア</h2>
+          <p>対応エリアは兵庫県たつの市を中心に姫路市や太子町など。<br>近隣の市町でも対応できる場合がありますのでご相談ください。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- FLOW SECTION -->
+    <section id="Flow">
+      <div class="section-label">Flow</div>
+      <div class="showcase-item reverse">
+        <div class="showcase-img">画像エリア</div>
+        <div class="showcase-text">
+          <h2>ご依頼から工事まで</h2>
+          <p>ご依頼から工事完了までの流れをご説明します。</p>
+        </div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3><span class="sub-font">１．</span>ご依頼／ご相談</h3>
+          <p>まずはお気軽にお問い合わせください。「こんなこと聞いてもいいのかな？」と言うことでも大丈夫です。LINEで無料相談できます。</p>
+        </div>
+        <div class="feature-card">
+          <h3><span class="sub-font">２．</span>お打合わせ</h3>
+          <p>お客様と日程を調整し、事前調査やお打合わせにお伺いします。状況に応じてお見積りや、応急対応など次のフローに進みます。※ご依頼内容によってお打ち合わせ等を省略する場合があります。</p>
+        </div>
+        <div class="feature-card">
+          <h3><span class="sub-font">３．</span>工事施工</h3>
+          <p>お見積り・工事内容に承諾いただいた後、水漏れ調査・工事施工となります。ご依頼内容によって工事日数や着手時期が変動しますので、事前にお打合わせします。</p>
+        </div>
+        <div class="feature-card">
+          <h3><span class="sub-font">４．</span>完了</h3>
+          <p>施工内容・取り扱い説明等をご確認いただき工事完了となります。後日請求書をお送りしますので、銀行振込にてお支払いをお願いいたします。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CTA -->
+    <section id="contact">
+      <div class="section-label">お問い合わせ</div>
+      <div class="cta">
+        <div class="cta-inner">
+          <h2><em>お手伝いできることは<br>ありますか？</em></h2>
+          <p>お気軽にお問い合わせください</p>
+          <a href="#" class="btn-cta" id="open-contact-cta">相談する</a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /.container -->
+
+</div><!-- /.page-content -->
+
+<!-- MODAL BACKDROP（モーダル・ナビ共用） backdrop-filter を modal-overlay の外に分離 → iOS Safari jank対策 -->
+<div id="modal-backdrop" class="modal-backdrop"></div>
+
+<!-- ABOUT MODAL -->
+<div class="modal-overlay" id="modal-about" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-label="藤浦製作所について">
+    <button class="modal-close" id="close-about" aria-label="閉じる">
+      <span></span><span></span>
+    </button>
+    <div class="modal-body">
+
+      <div class="modal-header-block">
+        <div class="modal-section-label">About</div>
+      </div>
+
+      <div class="concept-stage">
+        <div class="concept-text active"  style="font-family:'Kaisei Opti', serif;"><ruby>未来<rt>あした</rt></ruby>のためのものづくり</div>
+        <div class="concept-text"         style="font-family:'Shippori Mincho', serif;"><ruby>未来<rt>あした</rt></ruby>のためのものづくり</div>
+        <div class="concept-text"         style="font-family:'Zen Antique', sans-serif;"><ruby>未来<rt>あした</rt></ruby>のためのものづくり</div>
+        <div class="concept-text"         style="font-family:'Kiwi Maru', serif;"><ruby>未来<rt>あした</rt></ruby>のためのものづくり</div>
+        <div class="concept-text"         style="font-family:'Noto Sans JP', sans-serif;"><ruby>未来<rt>あした</rt></ruby>のためのものづくり</div>
+        <div class="concept-text"         style="font-family:'Zen Kurenaido', sans-serif;"><ruby>未来<rt>あした</rt></ruby>のためのものづくり</div>
+      </div>
+      <div class="concept-scroll-indicator">
+        <span class="scroll-text">Scroll</span>
+        <div class="scroll-line"><div class="scroll-line-bar"></div></div>
+      </div>
+
+      <div class="modal-content-grid">
+
+        <div class="modal-section">
+          <h2 class="modal-title">ごあいさつ</h2>
+          <div class="modal-block">
+            <p>水道の仕事は、暮らしに欠かせない“当たり前”を支える仕事です。<br>
+            私たちは、その一つひとつを暮らしをつくる「ものづくり」だと考えています。<br><br>
+            水道のトラブルや工事は、頻繁にあるものではないからこそ、<br>
+            困ったとき「どこに頼めばいいんだろう？」と不安になる方も多いと思います。<br>
+            そんなとき、気軽に相談できる存在でありたい。<br>
+            工事だけではなく、お客様との会話や安心感も大切にしながら、<br>
+            「また何かあったらお願いしよう」<br>
+            そう思っていただける仕事を目指しています。<br><br>
+            現在一人で営業しているため、すべてのご要望にすぐお応えできない場合もありますが、<br>
+            ご縁を大切に、一つひとつ丁寧に取り組みます。<br><br>
+            藤浦製作所　｜　代表　藤浦 高</p>
+            <div class="modal-img-placeholder">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+              <span>画像をここに配置</span>
+            </div>
+          </div>
+        </div>
+        <hr class="divider" style="margin: 0;">
+        <div class="modal-section">
+          <h2 class="modal-title">代表プロフィール</h2>
+          <div class="modal-block">
+            <p>異業種から設備工事会社へ転職し、6年間の経験を経て2023年に独立しました。<br>
+            住宅・公共施設・道路工事など、さまざまな現場に携わっていますが、<br>
+            お客様と直接関わる住宅設備の仕事にやりがいを感じています。<br><br>
+            「ものづくり」が好きで、水道工事だけではなく、さまざまな“つくること”への想いを込めて、屋号に「製作所」と名付けました。
+            実はこのホームページも自作していたり。<br><br>
+            1994年生まれ。<br>
+            妻と2人の娘、愛兎と暮らしています。<br>
+            休日は吹奏楽団の活動やカメラを持って出かけたりしています。<br>
+            たいしウインドアンサンブル副団長。</p>
+            <hr class="divider" style="margin: 24px 0; border-top-style: dashed; border-top-width: 0.5px;">
+            <p>【保有資格】<br><br>
+            ・給水装置工事主任技術者<br>
+            ・下水道排水設備工事責任技術者<br>
+            ・二級管工事施工管理技士<br>
+            ・二級土木施工管理技士　など</p>
+          </div>
+        </div>
+        <hr class="divider" style="margin: 0;">
+        <div class="modal-section">
+          <h2 class="modal-title">事業所情報</h2>
+          <div class="modal-block">
+          <dl class="modal-dl modal-dl--pipe">
+            <div class="modal-dl-row">
+              <dt>屋号</dt>
+              <dd>藤浦製作所（たつの市指定給水装置工事事業者）</dd>
+            </div>
+            <div class="modal-dl-row">
+              <dt>所在地</dt>
+              <dd>兵庫県たつの市誉田町福田467-6</dd>
+            </div>
+            <div class="modal-dl-row">
+              <dt>電話</dt>
+              <dd>070-4317-7165</dd>
+            </div>
+            <div class="modal-dl-row">
+              <dt>営業時間</dt>
+              <dd>平日・土曜 8:00〜17:00</dd>
+            </div>
+            <div class="modal-dl-row">
+              <dt>休業日</dt>
+              <dd>日曜・祝日・年末年始・お盆など（不定休あり）</dd>
+            </div>
+            <div class="modal-dl-row">
+              <dt>対応エリア</dt>
+              <dd>兵庫県たつの市・姫路市・太子町など</dd>
+            </div>
+          </dl>
+          </div>
+        </div>
+      </div>
+      <hr class="divider" style="margin: 0;">
+      <div class="modal-section">
+        <h2 class="modal-title">お問い合わせ・ご相談</h2>
+      </div>
+      <div class="contact-info">
+        <p class="contact-desc">下記よりお気軽にお問い合わせください。<br>訪問なしで簡単・気軽なLINE無料相談がおすすめです。<br>只今LINEでご相談のお客様に工事代金の割引クーポンを配布中！！</p>
+        <div class="contact-line-wrap">
+          <a href="https://line.me/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="btn-line">
+            <svg class="btn-line-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.630 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+            </svg>
+            LINEで無料相談
+          </a>
+        </div>
+        <div class="contact-tel">
+          <span class="contact-tel-label">電話でのお問い合わせ</span>
+          <span class="contact-tel-number">070-4317-7165</span>
+          <span class="contact-tel-hours">受付時間 8:00〜18:00（日祝除く）<br>作業中など電話に出られない事があります。あらかじめご了承ください。</span>
+        </div>
+      </div>
+
+      <div class="modal-scroll-end">scroll end</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="modal-contact" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-label="お問い合わせ／ご相談">
+    <button class="modal-close" id="close-contact" aria-label="閉じる">
+      <span></span><span></span>
+    </button>
+    <div class="modal-body">
+
+      <div class="modal-header-block">
+        <div class="modal-section-label">Contact</div>
+        <h2 class="modal-title">お問い合わせ／ご相談</h2>
+      </div>
+
+      <div class="contact-info">
+        <p class="contact-desc">下記よりお気軽にお問い合わせください。<br>訪問なしで簡単・気軽なLINE無料相談がおすすめです。<br>只今LINEでご相談のお客様に工事代金の割引クーポンを配布中！！</p>
+        
+        <!-- LINEリンク：href の URL を公式LINEアカウントのURLに変更してください -->
+      <div class="contact-line-wrap">
+        <a href="https://line.me/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="btn-line">
+          <svg class="btn-line-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.630 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+          </svg>
+          LINEで無料相談
+        </a>
+      </div>
+      
+      
+        <!-- 電話番号 -->
+        <a href="tel:0791-00-0000" class="contact-tel">
+          <span class="contact-tel-label">電話でのお問い合わせ</span>
+          <span class="contact-tel-number">070-4317-7165</span>
+          <span class="contact-tel-hours">受付時間 8:00〜18:00（日祝除く）<br>作業中など電話に出られない事があります。あらかじめご了承ください。</span>
+        </a>
+      </div>
+
+      <div class="modal-scroll-end">scroll end</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRIVACY POLICY MODAL -->
+<div class="modal-overlay" id="modal-privacy" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-label="プライバシーポリシー">
+    <button class="modal-close" id="close-privacy" aria-label="閉じる">
+      <span></span><span></span>
+    </button>
+    <div class="modal-body">
+
+      <div class="modal-header-block">
+        <div class="modal-section-label">Privacy Policy</div>
+        <h2 class="modal-title">プライバシーポリシー</h2>
+      </div>
+
+      <div class="modal-block">
+        <p>藤浦製作所（以下「当社」）は、個人情報の保護に関する法令等を遵守するとともに、以下にプライバシーポリシーを定め、個人情報の適正な取り扱いに努めます。</p>
+      </div>
+
+      <div class="modal-content-grid">
+
+        <div class="modal-block">
+          <h3>（1）事業者情報</h3>
+          <dl class="modal-dl modal-dl--pipe">
+            <div class="modal-dl-row">
+              <dt>屋号</dt>
+              <dd>藤浦製作所</dd>
+            </div>
+            <div class="modal-dl-row">
+              <dt>代表者</dt>
+              <dd>藤浦 高</dd>
+            </div>
+            <div class="modal-dl-row">
+              <dt>所在地</dt>
+              <dd>兵庫県たつの市誉田町福田467-6</dd>
+            </div>
+            <div class="modal-dl-row">
+              <dt>電話</dt>
+              <dd>070-4317-7165</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="modal-block">
+          <h3>（2）個人情報の収集と利用目的</h3>
+          <p>当社は、以下の目的のために必要な範囲で個人情報を収集します。利用目的を変更する場合は、変更後の内容を公表またはご本人へ通知します。</p>
+          <ul class="modal-list">
+            <li>お問い合わせ・ご相談への回答および連絡のため</li>
+            <li>お見積り・工事の実施・施工管理のため</li>
+            <li>工事完了後のアフターフォローおよびご請求のため</li>
+            <li>当社サービスに関するご案内のため</li>
+          </ul>
+        </div>
+
+        <div class="modal-block">
+          <h3>（3）法令の遵守</h3>
+          <p>当社は個人情報を取り扱うにあたり、個人情報の保護に関する法律および関係する法令、ガイドラインを遵守します。</p>
+        </div>
+
+        <div class="modal-block">
+          <h3>（4）個人情報の管理・保護</h3>
+          <p>ご提供いただいた個人情報は、管理責任者が適切に管理し、漏洩や紛失等の防止に努めます。また、外部からの不正アクセスや破壊、改ざん等の危険に対して安全対策を実施し、個人情報の保護に努めます。</p>
+        </div>
+
+        <div class="modal-block">
+          <h3>（5）個人情報の利用</h3>
+          <p>当社はご本人の同意を得ないで、利用目的の達成に必要な範囲を超えて個人情報を取り扱いません。</p>
+        </div>
+
+        <div class="modal-block">
+          <h3>（6）個人情報の第三者への提供</h3>
+          <p>当社はご本人の同意を得ないで、業務委託先以外の第三者に開示・提供することはありません。ただし、法令により開示を求められた場合を除きます。</p>
+        </div>
+
+        <div class="modal-block">
+          <h3>（7）個人情報の開示・訂正等</h3>
+          <p>個人情報につき開示、訂正等の請求があった場合は、その請求がご本人またはその代理人によるものであることを確認した上で、必要かつ合理的な範囲で対応いたします。</p>
+        </div>
+
+        <div class="modal-block">
+          <h3>（8）お問い合わせ窓口</h3>
+          <p>個人情報の取り扱いに関するお問い合わせは、<span style="font-family:'Kiwi Maru', serif; color:#999;">藤浦製作所（TEL:070-4317-7165）</span>までご連絡ください。</p>
+        </div>
+
+        <div class="modal-block">
+          <p style="font-size:0.8rem; color:#999; text-align:right; font-family:'Kiwi Maru', serif;">制定：2026年5月1日</p>
+        </div>
+
+      </div>
+
+      <div class="modal-scroll-end">scroll end</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-top">
+      <a href="#" class="footer-logo">藤浦製作所</a>
+      <p class="footer-tagline">たつの市の水まわり工事は当店へ</p>
+    </div>
+
+    <div class="footer-mid">
+      <div class="footer-nav">
+        <a href="#About">About</a>
+        <a href="#Service">Service</a>
+        <a href="#Flow">Flow</a>
+        <a href="#" id="open-contact-footer">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-links">
+        <a href="#" id="open-privacy">プライバシーポリシー</a>
+        <a href="#" id="open-about-footer">事業所情報</a>
+      </div>
+      <span class="footer-copy">© 2026 Fujiura Works</span>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  // ── ローディングオーバーレイ ──
+  const loadingOverlay = document.getElementById('loading-overlay');
+
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+  const header = document.querySelector('header');
+
+  // ── ヒーロー アニメーション ──
+  const heroOverlay = document.querySelector('.hero-overlay');
+  const heroH1 = heroOverlay.querySelector('h1');
+  const heroImageEl = document.querySelector('.hero-image');
+  const scrollIndicator = document.getElementById('scroll-indicator');
+
+  // 初期状態: h1・スクロールインジケーター非表示
+  heroH1.style.opacity = '0';
+  heroH1.style.transform = 'scale(0.97)';
+  scrollIndicator.style.opacity = '0';
+
+  let heroScrollEnabled = false;
+
+  function enableHeroScroll() {
+    if (heroScrollEnabled) return;
+    heroScrollEnabled = true;
+    heroH1.style.transition = ''; // イントロのtransitionを外してスクロール即時同期
+  }
+
+  function startHeroIntro() {
+    // ① h1 フェイドイン（初期状態が描画されてからtransitionを開始）
+    setTimeout(() => {
+      heroH1.style.transition = 'opacity 3s ease, transform 3s ease';
+      heroH1.style.opacity = '1';
+      heroH1.style.transform = 'scale(1)';
+    }, 50);
+
+    // ② スクロールインジケーター フェイドイン（h1の後、溜めを持たせて）
+    setTimeout(() => {
+      scrollIndicator.style.transition = 'opacity 0.8s ease';
+      scrollIndicator.style.opacity = '1';
+    }, 3200);
+
+    // ③ スクロールインジケーター transition を外す
+    setTimeout(() => {
+      scrollIndicator.style.opacity = '';
+      scrollIndicator.style.transition = '';
+    }, 4200);
+  }
+
+  window.addEventListener('load', () => {
+    loadingOverlay.classList.add('hidden');
+    setTimeout(() => {
+      loadingOverlay.remove();
+      startHeroIntro();
+    }, 800);
+  });
+
+  function updateHeroH1Anim() {
+    if (!heroScrollEnabled) return;
+
+    const scroll = window.scrollY;
+    const heroHeight = heroImageEl.offsetHeight;
+    const raw = Math.min(1, scroll / (heroHeight * 0.5));
+    const progress = raw * raw * (3 - 2 * raw); // smoothstep
+
+    heroH1.style.opacity = 1 - progress;
+    heroH1.style.transform = progress > 0 ? `scale(${1 + progress * 0.5})` : '';
+  }
+
+  // 最初のスクロール操作でイントロ終了・スクロール制御に即時切替
+  window.addEventListener('scroll', () => {
+    if (!heroScrollEnabled && window.scrollY > 0) enableHeroScroll();
+  }, { passive: true });
+
+  window.addEventListener('scroll', updateHeroH1Anim, { passive: true });
+  updateHeroH1Anim();
+
+  // ── スクロールインジケーター ──
+  function updateScrollIndicator() {
+    scrollIndicator.classList.toggle('hidden', window.scrollY > 80);
+  }
+  window.addEventListener('scroll', updateScrollIndicator, { passive: true });
+
+  // ── ヘッダー・ナビ スクロール表示 ──
+  function updateNavVisibility() {
+    const heroBottom = heroImageEl.offsetTop + heroImageEl.offsetHeight;
+    const visible = window.scrollY >= heroBottom - 80;
+    header.classList.toggle('nav-visible', visible);
+    nav.classList.toggle('nav-visible', visible);
+  }
+  window.addEventListener('scroll', updateNavVisibility, { passive: true });
+  updateNavVisibility();
+
+  function openMenu() {
+    nav.classList.add('active');
+    toggle.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    header.style.zIndex = '9998';
+  }
+
+  function closeMenu() {
+    nav.classList.remove('active');
+    toggle.classList.remove('active');
+    document.body.style.overflow = '';
+    header.style.zIndex = '';
+  }
+
+  toggle.addEventListener('click', () => {
+    if (nav.classList.contains('active')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  document.querySelector('.nav-close').addEventListener('click', closeMenu);
+
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#') && href.length > 1) {
+        e.preventDefault();
+        closeMenu();
+        setTimeout(() => {
+          const target = document.querySelector(href);
+          if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 56;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
+        }, 280); // nav の fade-out (0.25s) 完了後にスクロール
+      } else {
+        closeMenu();
+      }
+    });
+  });
+
+  // ── 共有バックドロップ（iOS Safari jank対策: backdrop-filterをoverlay外に分離）──
+  const modalBackdrop = document.getElementById('modal-backdrop');
+
+  // ── About モーダル ──
+  const modalAbout = document.getElementById('modal-about');
+  const openAbout  = document.getElementById('open-about');
+  const closeAbout = document.getElementById('close-about');
+
+  function openModal() {
+    modalBackdrop.classList.add('active');
+    modalAbout.classList.add('active');
+    modalAbout.setAttribute('aria-hidden', 'false');
+    modalAbout.querySelector('.modal-panel').scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+    conceptTimer = setInterval(rotateConcept, 4000);
+  }
+
+  function closeModal() {
+    modalBackdrop.classList.remove('active');
+    modalAbout.classList.remove('active');
+    modalAbout.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    clearInterval(conceptTimer);
+    conceptTexts.forEach((el, i) => el.classList.toggle('active', i === 0));
+    conceptIndex = 0;
+  }
+
+  openAbout.addEventListener('click', e => { e.preventDefault(); openModal(); });
+
+  const openAboutFooter = document.getElementById('open-about-footer');
+  if (openAboutFooter) openAboutFooter.addEventListener('click', e => { e.preventDefault(); openModal(); });
+
+  const openAboutNav = document.getElementById('open-about-nav');
+  if (openAboutNav) openAboutNav.addEventListener('click', e => { e.preventDefault(); closeMenu(); openModal(); });
+  closeAbout.addEventListener('click', closeModal);
+
+  modalAbout.addEventListener('click', e => {
+    if (e.target === modalAbout || e.target === modalAbout.querySelector('.modal-panel')) closeModal();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modalAbout.classList.contains('active')) closeModal();
+  });
+
+  // ── Contact モーダル ──
+  const modalContact = document.getElementById('modal-contact');
+  const closeContact = document.getElementById('close-contact');
+  const contactTriggers = [
+    document.getElementById('open-contact'),
+    document.getElementById('open-contact-cta'),
+    document.getElementById('open-contact-footer'),
+  ];
+
+  function openContactModal() {
+    modalBackdrop.classList.add('active');
+    modalContact.classList.add('active');
+    modalContact.setAttribute('aria-hidden', 'false');
+    modalContact.querySelector('.modal-panel').scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeContactModal() {
+    modalBackdrop.classList.remove('active');
+    modalContact.classList.remove('active');
+    modalContact.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  contactTriggers.forEach(el => {
+    if (el) el.addEventListener('click', e => { e.preventDefault(); closeMenu(); openContactModal(); });
+  });
+
+  closeContact.addEventListener('click', closeContactModal);
+
+  modalContact.addEventListener('click', e => {
+    if (e.target === modalContact || e.target === modalContact.querySelector('.modal-panel')) closeContactModal();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modalContact.classList.contains('active')) closeContactModal();
+  });
+
+  // ── Privacy Policy モーダル ──
+  const modalPrivacy = document.getElementById('modal-privacy');
+  const openPrivacy  = document.getElementById('open-privacy');
+  const closePrivacy = document.getElementById('close-privacy');
+
+  function openPrivacyModal() {
+    modalBackdrop.classList.add('active');
+    modalPrivacy.classList.add('active');
+    modalPrivacy.setAttribute('aria-hidden', 'false');
+    modalPrivacy.querySelector('.modal-panel').scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePrivacyModal() {
+    modalBackdrop.classList.remove('active');
+    modalPrivacy.classList.remove('active');
+    modalPrivacy.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  openPrivacy.addEventListener('click', e => { e.preventDefault(); openPrivacyModal(); });
+
+  const openPrivacyNav = document.getElementById('open-privacy-nav');
+  if (openPrivacyNav) openPrivacyNav.addEventListener('click', e => { e.preventDefault(); closeMenu(); openPrivacyModal(); });
+  closePrivacy.addEventListener('click', closePrivacyModal);
+
+  modalPrivacy.addEventListener('click', e => {
+    if (e.target === modalPrivacy || e.target === modalPrivacy.querySelector('.modal-panel')) closePrivacyModal();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modalPrivacy.classList.contains('active')) closePrivacyModal();
+  });
+
+  // ── concept-stage スクロールインジケーター非表示 ──
+  const conceptScrollIndicator = document.querySelector('.concept-scroll-indicator');
+  const modalAboutPanel = modalAbout.querySelector('.modal-panel');
+  modalAboutPanel.addEventListener('scroll', () => {
+    conceptScrollIndicator.classList.toggle('hidden', modalAboutPanel.scrollTop > 160);
+  }, { passive: true });
+
+  // ── モーダル scroll end ──
+  document.querySelectorAll('.modal-panel').forEach(panel => {
+    const end = panel.querySelector('.modal-scroll-end');
+    if (!end) return;
+    panel.addEventListener('scroll', () => {
+      const atBottom = panel.scrollHeight - panel.scrollTop - panel.clientHeight < 40;
+      end.classList.toggle('visible', atBottom);
+    }, { passive: true });
+  });
+
+  // ── コンセプト フォント切替 ──
+  const conceptTexts = document.querySelectorAll('.concept-text');
+  let conceptIndex = 0;
+  let conceptTimer = null;
+
+  // Safari ではフォント切替アニメーションを無効化（パフォーマンス対策）
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  if (isSafari) document.documentElement.setAttribute('data-safari', '');
+
+  function rotateConcept() {
+    if (isSafari) return;
+    const current = conceptTexts[conceptIndex];
+    conceptIndex = (conceptIndex + 1) % conceptTexts.length;
+    const next = conceptTexts[conceptIndex];
+    next.classList.add('active');
+    setTimeout(() => current.classList.remove('active'), 500);
+  }
+</script>
+
+</body>
+</html>
