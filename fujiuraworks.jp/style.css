@@ -1157,6 +1157,7 @@ footer {
   font-size: clamp(1rem, 0.818rem + 0.91vw, 1.5rem);
   line-height: 1.3;
   letter-spacing: 0.05rem;
+  margin-bottom: 12px;
 }
 
 .modal-content-grid {
@@ -1176,10 +1177,14 @@ footer {
 
 .modal-block p {
   font-size: 0.9rem;
-  line-height: 1.85;
+  line-height: 2;
   color: var(--text-muted);
   font-weight: 300;
   letter-spacing: -0.02rem;
+}
+
+.modal-block p + p {
+  margin-top: 1.2em;
 }
 
 /* 会社情報 定義リスト */
@@ -1259,7 +1264,21 @@ footer {
   color: var(--border);
 }
 
+@media (min-width: 481px) {
+  .modal-dl--pipe {
+    gap: 6px;
+  }
+
+  .modal-dl--pipe .modal-dl-row dt::after {
+    margin: 0 8px;
+  }
+}
+
 @media (max-width: 480px) {
+  /* brによる改行ずれ対策：段落分けはp要素で管理、keep-brクラスは除外 */
+  .modal-block p:not(.keep-br) br { display: none; }
+  .concept-caption br { display: none; }
+
   .modal-section-label {
     font-size: 0.72rem;
   }
@@ -1350,8 +1369,8 @@ footer {
 /* ─── CONCEPT STAGE（Aboutモーダル フォント切替） ─── */
 .concept-stage {
   width: 100%;
-  height: 50vh;
-  height: 50dvh;
+  height: 55vh;
+  height: 55dvh;
   background: transparent;
   border-radius: var(--radius);
   display: grid;
@@ -1360,18 +1379,35 @@ footer {
 }
 
 
+.concept-caption {
+  grid-area: 1/1;
+  align-self: end;
+  justify-self: center;
+  padding: 0 28px 8px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  text-align: center;
+  pointer-events: none;
+}
+
 .concept-scroll-indicator {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 20px 0 40px;
+  gap: 6px;
+  padding: 12px 0 28px;
   pointer-events: none;
   transition: opacity 0.6s ease;
 }
 
 .concept-scroll-indicator .scroll-text {
+  font-size: 0.6rem;
   color: #999;
+}
+
+.concept-scroll-indicator .scroll-line {
+  height: 32px;
 }
 
 .concept-scroll-indicator.hidden {
@@ -1384,7 +1420,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 24px 24px calc(24px + 20%) 24px;
   font-size: 6.5cqi;
   font-weight: 700;
   color: #1a1a1a;
@@ -1446,12 +1482,6 @@ footer {
   border-radius: var(--radius);
   padding: 20px 24px;
   text-decoration: none;
-  transition: background var(--transition), border-color var(--transition);
-}
-
-.contact-tel:hover {
-  background: #f0eeea;
-  border-color: #bbb;
 }
 
 .contact-tel-label {

@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>藤浦製作所 - たつの市の水まわり工事は当店へ</title>
 
+  <script>
+    const password = '0113';
+    const input = prompt('パスワードを入力してください');
+    if (input !== password) {
+      document.location.href = 'about:blank';
+    }
+  </script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -198,6 +206,7 @@
         <div class="concept-text"         style="font-family:'Kiwi Maru', serif;"><ruby>未来<rt>あした</rt></ruby>のためのものづくり</div>
         <div class="concept-text"         style="font-family:'Noto Sans JP', sans-serif;"><ruby>未来<rt>あした</rt></ruby>のためのものづくり</div>
         <div class="concept-text"         style="font-family:'Zen Kurenaido', sans-serif;"><ruby>未来<rt>あした</rt></ruby>のためのものづくり</div>
+        <p class="concept-caption">水道の仕事は、暮らしに欠かせない"当たり前"を支える仕事です。<br>私たちは、その一つひとつを暮らしをつくる「ものづくり」だと考えています。<br>今日の仕事が、明日やその先の暮らしを支えている。<br>そんな想いを胸に、日々の仕事に向き合っています。</p>
       </div>
       <div class="concept-scroll-indicator">
         <span class="scroll-text">Scroll</span>
@@ -209,17 +218,15 @@
         <div class="modal-section">
           <h2 class="modal-title">ごあいさつ</h2>
           <div class="modal-block">
-            <p>水道の仕事は、暮らしに欠かせない“当たり前”を支える仕事です。<br>
-            私たちは、その一つひとつを暮らしをつくる「ものづくり」だと考えています。<br><br>
-            水道のトラブルや工事は、頻繁にあるものではないからこそ、<br>
-            困ったとき「どこに頼めばいいんだろう？」と不安になる方も多いと思います。<br>
-            そんなとき、気軽に相談できる存在でありたい。<br>
-            工事だけではなく、お客様との会話や安心感も大切にしながら、<br>
+            <p>水道のトラブルや工事は、頻繁ではないからこそ、<br>
+            困ったときに「どこに頼めばいいんだろう？」と不安になる方も多いと思います。<br>
+            そんなとき、気軽に相談できる存在でありたい。</p>
+            <p>私は工事だけでなく、お客様との会話や安心感も大切にしながら、<br>
             「また何かあったらお願いしよう」<br>
-            そう思っていただける仕事を目指しています。<br><br>
-            現在一人で営業しているため、すべてのご要望にすぐお応えできない場合もありますが、<br>
-            ご縁を大切に、一つひとつ丁寧に取り組みます。<br><br>
-            藤浦製作所　｜　代表　藤浦 高</p>
+            そう思っていただける仕事を目指しています。</p>
+            <p>現在一人で営業しているため、すべてのご要望にすぐお応えできない場合もありますが、<br>
+            ご縁を大切に、一つひとつ丁寧に取り組みます。</p>
+            <p>藤浦製作所　｜　代表　藤浦 高</p>
             <div class="modal-img-placeholder">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                 <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
@@ -233,17 +240,16 @@
         <div class="modal-section">
           <h2 class="modal-title">代表プロフィール</h2>
           <div class="modal-block">
-            <p>異業種から設備工事会社へ転職し、6年間の経験を経て2023年に独立しました。<br>
-            住宅・公共施設・道路工事など、さまざまな現場に携わっていますが、<br>
-            お客様と直接関わる住宅設備の仕事にやりがいを感じています。<br><br>
-            「ものづくり」が好きで、水道工事だけではなく、さまざまな“つくること”への想いを込めて、屋号に「製作所」と名付けました。
-            実はこのホームページも自作していたり。<br><br>
-            1994年生まれ。<br>
-            妻と2人の娘、愛兎と暮らしています。<br>
-            休日は吹奏楽団の活動やカメラを持って出かけたりしています。<br>
+            <p>異業種から設備工事会社へ転職、6年間の経験を経て2023年に独立。<br>
+            住宅・公共施設・道路工事など、さまざまな現場に携わる。</p>
+            <p>ものづくりが好きで、<br>
+            水道に限らず、様々な”つくること”への想いを込めて、屋号を「製作所」に。<br>
+            (実はこのホームページも自作)</p>
+            <p>1994年生まれ。妻と2人の娘、愛兎と暮らす。<br>
+            休日は吹奏楽団の活動や、カメラを持って出かけたり。<br>
             たいしウインドアンサンブル副団長。</p>
             <hr class="divider" style="margin: 24px 0; border-top-style: dashed; border-top-width: 0.5px;">
-            <p>【保有資格】<br><br>
+            <p class="keep-br">【保有資格】<br><br>
             ・給水装置工事主任技術者<br>
             ・下水道排水設備工事責任技術者<br>
             ・二級管工事施工管理技士<br>
@@ -286,8 +292,7 @@
       <hr class="divider" style="margin: 0;">
       <div class="modal-section">
         <h2 class="modal-title">お問い合わせ・ご相談</h2>
-      </div>
-      <div class="contact-info">
+        <div class="contact-info">
         <p class="contact-desc">下記よりお気軽にお問い合わせください。<br>訪問なしで簡単・気軽なLINE無料相談がおすすめです。<br>只今LINEでご相談のお客様に工事代金の割引クーポンを配布中！！</p>
         <div class="contact-line-wrap">
           <a href="https://line.me/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="btn-line">
@@ -301,6 +306,7 @@
           <span class="contact-tel-label">電話でのお問い合わせ</span>
           <span class="contact-tel-number">070-4317-7165</span>
           <span class="contact-tel-hours">受付時間 8:00〜18:00（日祝除く）<br>作業中など電話に出られない事があります。あらかじめご了承ください。</span>
+        </div>
         </div>
       </div>
 
@@ -337,11 +343,11 @@
       
       
         <!-- 電話番号 -->
-        <a href="tel:0791-00-0000" class="contact-tel">
+        <div class="contact-tel">
           <span class="contact-tel-label">電話でのお問い合わせ</span>
           <span class="contact-tel-number">070-4317-7165</span>
           <span class="contact-tel-hours">受付時間 8:00〜18:00（日祝除く）<br>作業中など電話に出られない事があります。あらかじめご了承ください。</span>
-        </a>
+        </div>
       </div>
 
       <div class="modal-scroll-end">scroll end</div>
