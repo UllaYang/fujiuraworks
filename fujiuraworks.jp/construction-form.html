@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@700&family=Kiwi+Maru:wght@400;500&display=swap" rel="stylesheet">
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -718,6 +719,18 @@
 </div>
 
 <script>
+  // ── LIFF初期化（LINEプロフィール取得） ──
+  const LIFF_ID = '2009926422-n1dFgEe1';
+  let lineProfile = null;
+  const liffReady = (async () => {
+    try {
+      await liff.init({ liffId: LIFF_ID });
+      if (liff.isLoggedIn()) lineProfile = await liff.getProfile();
+    } catch (e) {
+      console.warn('LIFF init:', e);
+    }
+  })();
+
   // ── 分岐テキスト設定 ──
   const PLACEHOLDERS = {
     faucet: '例：キッチンの蛇口から水漏れがあり、交換したいです。メーカーや品番がわかる場合はご記載ください。',
@@ -828,6 +841,8 @@
     const loadingOverlay = document.getElementById('loading-overlay');
     loadingOverlay.classList.remove('hidden');
 
+    await liffReady;
+
     // ── フォームデータを組み立て ──
     const CATEGORY_LABELS = {
       faucet: '蛇口・器具の交換', other: 'その他・わからない'
@@ -876,6 +891,8 @@
     }
 
     const payload = {
+      line_name: lineProfile?.displayName || '（取得不可）',
+      line_id  : lineProfile?.userId      || '（取得不可）',
       category : CATEGORY_LABELS[category.value]     || category.value,
       location : LOCATION_LABELS[getValue('location')] || '（なし）',
       detail   : detail,
