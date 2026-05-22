@@ -38,7 +38,10 @@
       "Bash(cp -r /Users/fujiuratakashi/Desktop/fujiuraworks.jp/index.html /Users/fujiuratakashi/Desktop/fujiuraworks.jp/style.css /Users/fujiuratakashi/Desktop/fujiuraworks.jp/img /tmp/HP_preview/)",
       "Bash(ls -la /tmp/HP_preview/)",
       "Bash(pkill -f \"ruby.*3000\")",
-      "WebFetch(domain:hajimete.org)"
+      "WebFetch(domain:hajimete.org)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
