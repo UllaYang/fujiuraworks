@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:blacktiger50.sakura.ne.jp)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(curl -s \"http://blacktiger50.sakura.ne.jp/contact-form.html\")",
+      "Bash(curl -s -L -w '\\\\nHTTP Status: %{http_code}\\\\n' https://script.google.com/macros/s/AKfycby7KvuBN_6N9GJw8YT52Ae5TbQoZEIMCz4RW08e-i5s1GC6Uad-6IG7XhbW40dbp0I4ow/exec)",
+      "Bash(mkdir -p /Users/fujiuratakashi/Desktop/HP/.claude)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(ruby --version)",
+      "Bash(php --version)",
+      "Bash(mkdir -p /tmp/HP_preview)",
+      "Bash(cp -r /Users/fujiuratakashi/Desktop/HP/* /tmp/HP_preview/)",
+      "Bash(cp /Users/fujiuratakashi/Desktop/HP/style.css /tmp/HP_preview/style.css)",
+      "Bash(ls /tmp/HP_preview 2>/dev/null || echo \"not found\")",
+      "Bash(md5 /Users/fujiuratakashi/Desktop/HP/style.css)",
+      "Bash(md5 /tmp/HP_preview/style.css)",
+      "Bash(cp /Users/fujiuratakashi/Desktop/HP/index.html /tmp/HP_preview/index.html)",
+      "Bash(ls /tmp/HP_preview/ 2>/dev/null || echo \"directory not found\")",
+      "Bash(ls /tmp/HP_preview/ 2>/dev/null || echo \"empty or missing\")",
+      "Bash(cp -r /Users/fujiuratakashi/Desktop/fujiuraworks.jp/* /tmp/HP_preview/)",
+      "Bash(cp /Users/fujiuratakashi/Desktop/fujiuraworks.jp/style.css /tmp/HP_preview/style.css)",
+      "Bash(rm -rf /tmp/HP_preview)",
+      "Bash(mkdir /tmp/HP_preview)",
+      "Bash(cp /Users/fujiuratakashi/Desktop/fujiuraworks.jp/index.html /tmp/HP_preview/index.html)",
+      "Bash(sed -n '986,993p' /Users/fujiuratakashi/Desktop/fujiuraworks.jp/style.css)",
+      "Bash(sed -n '1232,1238p' /Users/fujiuratakashi/Desktop/fujiuraworks.jp/style.css)",
+      "Bash(grep -n \"^\\\\s*p {$\\\\|^\\\\s*p,$\\\\|^p {\" /Users/fujiuratakashi/Desktop/fujiuraworks.jp/style.css)",
+      "Bash(ls /tmp/ | grep -i preview)",
+      "Bash(ls /Users/fujiuratakashi/Documents/GitHub/fujiuraworks/)",
+      "Bash(cp /Users/fujiuratakashi/Desktop/fujiuraworks.jp/index.html /Users/fujiuratakashi/Documents/GitHub/fujiuraworks/fujiuraworks.jp/index.html)",
+      "Bash(cp /Users/fujiuratakashi/Desktop/fujiuraworks.jp/style.css /Users/fujiuratakashi/Documents/GitHub/fujiuraworks/fujiuraworks.jp/style.css)",
+      "Bash(find /Users/fujiuratakashi/Desktop -name \".git\" -type d 2>/dev/null)",
+      "Bash(find /Users/fujiuratakashi -maxdepth 4 -name \".git\" -type d 2>/dev/null)",
+      "Bash(cp /Users/fujiuratakashi/Desktop/fujiuraworks.jp/construction-form.html /Users/fujiuratakashi/Documents/GitHub/fujiuraworks/fujiuraworks.jp/construction-form.html)",
+      "Bash(cp /Users/fujiuratakashi/Desktop/fujiuraworks.jp/contact-form.html /Users/fujiuratakashi/Documents/GitHub/fujiuraworks/fujiuraworks.jp/contact-form.html)",
+      "Bash(ls /tmp/HP_preview 2>/dev/null || echo \"directory empty or missing\")",
+      "Bash(cp -r /Users/fujiuratakashi/Desktop/fujiuraworks.jp/index.html /Users/fujiuratakashi/Desktop/fujiuraworks.jp/style.css /Users/fujiuratakashi/Desktop/fujiuraworks.jp/img /tmp/HP_preview/)",
+      "Bash(ls -la /tmp/HP_preview/)",
+      "Bash(pkill -f \"ruby.*3000\")"
+    ]
+  }
+}
