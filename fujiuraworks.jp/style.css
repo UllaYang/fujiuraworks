@@ -391,9 +391,15 @@ nav a:not(.btn-nav):hover::after { width: 100%; }
 .hero-overlay h1 {
   will-change: transform, opacity;
   transform-origin: top left;
+  line-height: 2;
+}
+
+.hero-h1-text {
+  display: inline;
   background: #ffffff;
-  padding: 16px 20px;
-  line-height: 1.8;
+  padding: 4px 12px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .sp-br { display: inline; }
