@@ -376,6 +376,15 @@ nav a:not(.btn-nav):hover::after { width: 100%; }
   position: relative;
 }
 
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right center;
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
