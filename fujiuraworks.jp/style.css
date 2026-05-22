@@ -381,23 +381,22 @@ nav a:not(.btn-nav):hover::after { width: 100%; }
   inset: 0;
   z-index: 50;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  text-align: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 40px;
+  text-align: left;
   pointer-events: none;
 }
 
 .hero-overlay h1 {
   will-change: transform, opacity;
-  transform-origin: center;
+  transform-origin: top left;
+  background: #ffffff;
+  padding: 16px 20px;
+  line-height: 1.8;
 }
 
-.sp-br { display: none; }
-
-@media (max-width: 768px) {
-  .sp-br { display: inline; }
-}
+.sp-br { display: inline; }
 
 .image-placeholder {
   display: flex;
