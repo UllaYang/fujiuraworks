@@ -41,7 +41,12 @@
       "WebFetch(domain:hajimete.org)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(ls /tmp/HP_preview 2>/dev/null && echo \"exists\" || echo \"empty or missing\")",
+      "Bash(cp /Users/fujiuratakashi/Documents/GitHub/fujiuraworks/fujiuraworks.jp/style.css /tmp/HP_preview/style.css)",
+      "Bash(cp /Users/fujiuratakashi/Documents/GitHub/fujiuraworks/fujiuraworks.jp/style.css /tmp/HP_preview/style.css && echo \"完了\")",
+      "Bash(curl -s \"http://localhost:3000/style.css\")",
+      "Bash(cp /Users/fujiuratakashi/Documents/GitHub/fujiuraworks/fujiuraworks.jp/style.css /tmp/HP_preview/style.css && echo \"ok\")"
     ]
   }
 }

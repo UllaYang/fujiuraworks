@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>漏水無料相談 — 藤浦製作所</title>
+  <title>漏水のご相談フォーム</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,7 +68,10 @@
       color: var(--text);
       text-decoration: none;
       letter-spacing: 0.02rem;
+      display: flex;
+      align-items: center;
     }
+    .logo img { height: 28px; width: auto; display: block; }
 
     /* ─── LAYOUT ─── */
     .container {
@@ -396,8 +399,8 @@
     footer { background: #1a1a1a; padding: 32px 24px 24px; }
     .footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
     .footer-top { display: flex; flex-direction: column; gap: 8px; }
-    .footer-logo { font-family: var(--font-display); font-size: 1.4rem; color: #fff; text-decoration: none; letter-spacing: 0.05rem; transition: opacity 0.2s ease; }
-    .footer-logo:hover { opacity: 0.7; }
+    .footer-logo { font-family: var(--font-display); font-size: 1.4rem; color: #fff; text-decoration: none; letter-spacing: 0.05rem; display: flex; align-items: center; }
+    .footer-logo img { height: 28px; width: auto; display: block; }
     .footer-tagline { font-size: 0.8rem; color: #888; font-family: var(--font-sub); }
     .footer-mid { display: flex; flex-direction: column; gap: 24px; }
     @media (min-width: 520px) { .footer-mid { flex-direction: row; justify-content: space-between; align-items: flex-start; } }
@@ -462,11 +465,13 @@
     /* ─── LOADING OVERLAY ─── */
     .loading-overlay { position: fixed; inset: 0; z-index: 99999; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; opacity: 1; transition: opacity 0.8s ease; pointer-events: all; }
     .loading-overlay.hidden { opacity: 0; pointer-events: none; }
-    .loading-name { font-family: "Kaisei Opti", serif; font-size: clamp(1.2rem, 4vw, 1.8rem); color: #1f1f1f; letter-spacing: 0.12em; }
-    .loading-plane-wrap { width: 160px; height: 48px; position: relative; overflow: visible; }
-    .loading-plane { position: absolute; width: 28px; height: 28px; top: 50%; left: 50%; color: #1f1f1f; animation: planeFly 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-    @keyframes planeFly { 0% { transform: translate(-100px, 12px) rotate(40deg); opacity: 0; } 15% { opacity: 1; } 50% { transform: translate(0px, -10px) rotate(40deg); opacity: 1; } 85% { opacity: 1; } 100% { transform: translate(100px, 12px) rotate(40deg); opacity: 0; } }
-    .loading-label { font-family: "Kiwi Maru", serif; font-size: 0.75rem; letter-spacing: 0.15em; color: #999; }
+    .loading-name { display: block; width: min(220px, 64vw); height: auto; }
+    .loading-image { display: block; width: min(180px, 52vw); height: auto; }
+    .loading-spinner { width: 30px; height: 30px; color: #1f1f1f; animation: loadingSpin 1s linear infinite; }
+    .loading-spinner circle { opacity: 0.2; }
+    .loading-spinner path { opacity: 0.9; }
+    @keyframes loadingSpin { to { transform: rotate(360deg); } }
+    .loading-label { font-family: "Kaisei Opti", serif; font-size: 0.75rem; letter-spacing: 0.15em; color: #999; }
 
     /* ─── ANIMATIONS ─── */
     @keyframes fadeUp {
@@ -484,12 +489,12 @@
 
 <!-- LOADING OVERLAY -->
 <div class="loading-overlay hidden" id="loading-overlay">
-  <span class="loading-name">藤浦製作所</span>
-  <div class="loading-plane-wrap">
-    <svg class="loading-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/>
-    </svg>
-  </div>
+  <img class="loading-name" src="img/logo.png" alt="藤浦製作所">
+  <img class="loading-image" src="img/about.png" alt="">
+  <svg class="loading-spinner" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M21 12a9 9 0 0 0-9-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>
   <span class="loading-label">送信中</span>
 </div>
 
@@ -497,7 +502,7 @@
 
 <header>
   <div class="header-inner">
-    <a href="index.html" class="logo">藤浦製作所</a>
+    <span class="logo"><img src="img/logo.png" alt="藤浦製作所"></span>
   </div>
 </header>
 
@@ -519,7 +524,7 @@
   <div id="form-wrap">
 
     <div class="page-header">
-      <h1>漏水<br>無料相談フォーム</h1>
+      <h1>漏水<br>相談フォーム</h1>
       <p>「ちょっと気になる」程度でもお気軽にどうぞ。<br>工事の必要があるかどうかも含めてご相談いただけます。</p>
     </div>
 
@@ -668,7 +673,7 @@
       </div>
 
       <div class="submit-area">
-        <button type="submit" class="btn-submit">相談を送信する</button>
+        <button type="submit" class="btn-submit">相談内容を送信</button>
         <p class="submit-note">
           内容を確認のうえ、当日もしくは翌日中にご連絡いたします。<br>
           お急ぎの場合は 070-4317-7165 までお電話ください。
@@ -685,7 +690,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <a href="index.html" class="footer-logo">藤浦製作所</a>
+      <span class="footer-logo"><img src="img/footer-logo.png" alt="藤浦製作所"></span>
     </div>
     <div class="footer-bottom">
       <div class="footer-links">

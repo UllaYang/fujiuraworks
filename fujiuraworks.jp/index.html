@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>藤浦製作所 - たつの市の水まわり工事は当店へ</title>
 
+<!--
   <script>
     const password = '0113';
     const input = prompt('パスワードを入力してください');
@@ -12,6 +13,7 @@
       document.location.href = 'about:blank';
     }
   </script>
+-->
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,8 +25,13 @@
 
 <!-- LOADING OVERLAY -->
 <div class="loading-overlay" id="loading-overlay">
-  <span class="loading-name">藤浦製作所</span>
-  <div class="loading-line"><div class="loading-line-bar"></div></div>
+  <img class="loading-name" src="img/logo.png" alt="藤浦製作所">
+  <img class="loading-image" src="img/about.png" alt="">
+  <svg class="loading-spinner" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M21 12a9 9 0 0 0-9-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+  <span class="loading-label">よみこみ中…</span>
 </div>
 
 <div class="page-content">
@@ -32,7 +39,7 @@
   <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <a href="#" class="logo">ProductName</a>
+      <a href="#" class="logo"><img src="img/logo.png" alt="藤浦製作所"></a>
       <button class="menu-toggle" aria-label="メニューを開く">
         <span></span>
         <span></span>
@@ -47,7 +54,7 @@
         <span></span>
         <span></span>
       </button>
-      <a href="#" class="logo nav-logo">ProductName</a>
+      <a href="#" class="logo nav-logo"><img src="img/logo.png" alt="藤浦製作所"></a>
       <div class="nav-links-group">
         <a href="#About">About</a>
         <a href="#Service">Service</a>
@@ -70,7 +77,8 @@
       </div>
     </div>
     <div class="scroll-indicator" id="scroll-indicator">
-      <div class="scroll-arrow"></div>
+      <span class="scroll-label">scroll</span>
+      <span class="scroll-arrow">▼</span>
     </div>
   </div>
 
@@ -80,7 +88,7 @@
     <section id="About">
       <div class="section-label">About</div>
       <div class="showcase-item">
-        <div class="showcase-img">画像エリア</div>
+        <div class="showcase-img"><img src="img/about.png" alt="藤浦製作所について"></div>
         <div class="showcase-text">
           <h2>はじめまして<br>藤浦製作所です</h2>
           <p>私たちの暮らしに欠かせない水道。その水道を維持していく仕事に、誇りと責任を持って取り組んでいます。当たり前だけど大切な水道のこと、もしもお困りのことがあれば、ぜひ当社にご相談ください。</p>
@@ -95,7 +103,7 @@
     <section id="Service">
       <div class="section-label">Service</div>
       <div class="showcase-item reverse">
-        <div class="showcase-img">画像エリア</div>
+        <div class="showcase-img"><img src="img/service.png" alt="サービス"></div>
         <div class="showcase-text">
           <h2>私たちにできること</h2>
           <p>住宅の水まわりや水道のこと、なんでもご相談ください。お客様にご納得いただける解決方法を提案します。</p>
@@ -133,7 +141,7 @@
     <section id="Flow">
       <div class="section-label">Flow</div>
       <div class="showcase-item reverse">
-        <div class="showcase-img">画像エリア</div>
+        <div class="showcase-img"><img src="img/flow.png" alt="ご依頼から工事まで"></div>
         <div class="showcase-text">
           <h2>ご依頼から工事まで</h2>
           <p>ご依頼から工事完了までの流れをご説明します。</p>
@@ -146,7 +154,7 @@
         </div>
         <div class="feature-card">
           <h3><span class="sub-font">２．</span>お打合わせ</h3>
-          <p>お客様と日程を調整し、事前調査やお打合わせにお伺いします。状況に応じてお見積りや、応急対応など次のフローに進みます。※ご依頼内容によってお打ち合わせ等を省略する場合があります。</p>
+          <p>お客様と日程を調整し、事前調査やお打合わせにお伺いします。状況に応じてお見積りや、応急対応など次のフローに進みます。※ご依頼内容によって、お打合わせ等を省略する場合があります。</p>
         </div>
         <div class="feature-card">
           <h3><span class="sub-font">３．</span>工事施工</h3>
@@ -174,6 +182,11 @@
     </section>
 
   </div><!-- /.container -->
+
+  <!-- FOOTER IMAGE -->
+  <div class="footer-visual">
+    <img src="img/footer.png" alt="">
+  </div>
 
 </div><!-- /.page-content -->
 
@@ -212,8 +225,8 @@
           <h2 class="modal-title">ごあいさつ</h2>
           <div class="modal-block">
             <p>水道のトラブルや工事は、頻繁ではないからこそ、<br>
-            困ったときに「どこに頼めばいいんだろう？」と不安になる方も多いと思います。<br>
-            そんなとき、気軽に相談できる存在でありたい。</p>
+            困ったときに「どこに頼めばいいんだろう？」と不安になる方も多いと思います。</p>
+            <p>そんなとき、気軽に相談できる存在でありたい。</p>
             <p>私は工事だけでなく、お客様との会話や安心感も大切にしながら、<br>
             「また何かあったらお願いしよう」<br>
             そう思っていただける仕事を目指しています。</p>
@@ -221,11 +234,7 @@
             ご縁を大切に、一つひとつ丁寧に取り組みます。</p>
             <p>藤浦製作所　｜　代表　藤浦 高</p>
             <div class="modal-img-placeholder">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
-              <span>画像をここに配置</span>
+              <img src="img/profile.png" alt="代表 藤浦 高">
             </div>
           </div>
         </div>
@@ -288,7 +297,7 @@
         <div class="contact-info">
         <p class="contact-desc">下記よりお気軽にお問い合わせください。<br>訪問なしで簡単・気軽なLINE無料相談がおすすめです。<br>只今LINEでご相談のお客様に工事代金の割引クーポンを配布中！！</p>
         <div class="contact-line-wrap">
-          <a href="https://line.me/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="btn-line">
+          <a href="https://lin.ee/OzxFEjX" target="_blank" rel="noopener noreferrer" class="btn-line">
             <svg class="btn-line-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.630 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
             </svg>
@@ -326,7 +335,7 @@
         
         <!-- LINEリンク：href の URL を公式LINEアカウントのURLに変更してください -->
       <div class="contact-line-wrap">
-        <a href="https://line.me/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="btn-line">
+        <a href="https://lin.ee/OzxFEjX" target="_blank" rel="noopener noreferrer" class="btn-line">
           <svg class="btn-line-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.630 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
           </svg>
@@ -446,7 +455,7 @@
   <div class="footer-inner">
 
     <div class="footer-top">
-      <a href="#" class="footer-logo">藤浦製作所</a>
+      <a href="#" class="footer-logo"><img src="img/footer-logo.png" alt="藤浦製作所"></a>
       <p class="footer-tagline">たつの市の水まわり工事は当店へ</p>
     </div>
 
@@ -489,14 +498,6 @@
   heroH1.style.transform = 'scale(0.97)';
   scrollIndicator.style.opacity = '0';
 
-  let heroScrollEnabled = false;
-
-  function enableHeroScroll() {
-    if (heroScrollEnabled) return;
-    heroScrollEnabled = true;
-    heroH1.style.transition = ''; // イントロのtransitionを外してスクロール即時同期
-  }
-
   function startHeroIntro() {
     // ① h1 フェイドイン（初期状態が描画されてからtransitionを開始）
     setTimeout(() => {
@@ -525,26 +526,6 @@
       startHeroIntro();
     }, 800);
   });
-
-  function updateHeroH1Anim() {
-    if (!heroScrollEnabled) return;
-
-    const scroll = window.scrollY;
-    const heroHeight = heroImageEl.offsetHeight;
-    const raw = Math.min(1, scroll / (heroHeight * 0.5));
-    const progress = raw * raw * (3 - 2 * raw); // smoothstep
-
-    heroH1.style.opacity = 1 - progress;
-    heroH1.style.transform = progress > 0 ? `scale(${1 + progress * 0.5})` : '';
-  }
-
-  // 最初のスクロール操作でイントロ終了・スクロール制御に即時切替
-  window.addEventListener('scroll', () => {
-    if (!heroScrollEnabled && window.scrollY > 0) enableHeroScroll();
-  }, { passive: true });
-
-  window.addEventListener('scroll', updateHeroH1Anim, { passive: true });
-  updateHeroH1Anim();
 
   // ── スクロールインジケーター ──
   function updateScrollIndicator() {

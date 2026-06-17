@@ -26,7 +26,7 @@ html {
 
 
 body {
-  background: #ffffff;
+  background: #1a1a1a;
   color: var(--text);
   font-family: var(--font-body);
   font-weight: 400;
@@ -88,6 +88,14 @@ header.nav-visible {
   color: var(--text);
   text-decoration: none;
   letter-spacing: -0.01rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
 /* ─── NAV ─── */
@@ -398,17 +406,15 @@ nav a:not(.btn-nav):hover::after { width: 100%; }
   pointer-events: none;
 }
 
-.hero-overlay h1 {
-  will-change: transform, opacity;
-  transform-origin: top left;
-  line-height: 1.6;
-}
 
 .hero-h1-text {
   display: inline;
-  background: #ffffff;
-  padding: 0 4px;
-  line-height: 0.9;
+  background: none;
+  background-image: linear-gradient(#ffffff, #ffffff);
+  background-size: 100% 1.1em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 0;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -452,62 +458,72 @@ nav a:not(.btn-nav):hover::after { width: 100%; }
 }
 
 .loading-name {
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 4vw, 1.8rem);
-  color: var(--text);
-  letter-spacing: 0.12em;
+  display: block;
+  width: min(220px, 64vw);
+  height: auto;
 }
 
-.loading-line {
-  width: 1px;
-  height: 48px;
-  background: rgba(31, 31, 31, 0.2);
-  overflow: hidden;
+.loading-image {
+  display: block;
+  width: min(180px, 52vw);
+  height: auto;
 }
 
-.loading-line-bar {
-  width: 100%;
-  height: 100%;
-  background: var(--text);
-  transform: translateY(-100%);
-  animation: scrollDown 1.6s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+.loading-spinner {
+  width: 30px;
+  height: 30px;
+  color: #1f1f1f;
+  animation: loadingSpin 1s linear infinite;
+}
+
+.loading-spinner circle { opacity: 0.2; }
+.loading-spinner path { opacity: 0.9; }
+
+@keyframes loadingSpin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-label {
+  font-family: "Kaisei Opti", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #999;
 }
 
 /* ─── SCROLL INDICATOR ─── */
 .scroll-indicator {
   position: absolute;
-  bottom: 30px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2px;
   opacity: 1;
   transition: opacity 0.6s ease;
 }
 
 .scroll-indicator.hidden { opacity: 0; }
 
-.scroll-text {
+
+.scroll-label {
   font-family: "Kiwi Maru", serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  color: rgba(31, 31, 31, 0.55);
-  margin-bottom: 6px;
+  font-size: 0.52rem;
+  letter-spacing: 0.22em;
+  color: rgba(31, 31, 31, 0.5);
+  animation: scrollBlink 3.5s ease-in-out infinite;
 }
 
 .scroll-arrow {
-  width: 10px;
-  height: 10px;
-  border-right: 0.8px solid rgba(31, 31, 31, 0.55);
-  border-bottom: 0.8px solid rgba(31, 31, 31, 0.55);
-  animation: scrollArrow 1.6s ease infinite;
+  font-size: 0.65rem;
+  color: rgba(31, 31, 31, 0.5);
+  animation: scrollBlink 3.5s ease-in-out infinite;
 }
 
-@keyframes scrollArrow {
-  0%   { transform: translateY(-4px) rotate(45deg); opacity: 0; }
-  40%  { opacity: 1; }
-  100% { transform: translateY(6px) rotate(45deg); opacity: 0; }
+@keyframes scrollBlink {
+  0%, 100% { opacity: 0.15; }
+  50%       { opacity: 0.7; }
 }
 
 /* ─── HERO ─── */
@@ -518,10 +534,11 @@ nav a:not(.btn-nav):hover::after { width: 100%; }
   text-align: center;
 }
 
-.hero h1 {
+.hero-overlay h1 {
   font-family: "Kiwi Maru", serif;
-  font-size: clamp(1rem, 0.636rem + 1.82vw, 2rem);
+  font-size: clamp(1rem, 0.636rem + 1.82vw, 1.6rem);
   letter-spacing: -0.05rem;
+  line-height: 1.2;
   color: var(--text);
   font-weight: 500;
   font-style: normal;
@@ -739,7 +756,7 @@ section {
 /* ─── CTA ─── */
 .cta {
   max-width: var(--max-w);
-  margin: 0 auto 80px;
+  margin: 0 auto 32px;
   padding: 0;
 }
 
@@ -805,6 +822,18 @@ section {
 .hero-overlay h1 { animation: none; }
 
 /* ─── FOOTER ─── */
+.footer-visual {
+  width: 100%;
+  line-height: 0;
+}
+
+.footer-visual img {
+  width: 10%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 footer {
   background: #1a1a1a;
   padding: 56px 24px 32px;
@@ -835,6 +864,14 @@ footer {
   text-decoration: none;
   letter-spacing: 0.05rem;
   transition: opacity var(--transition);
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo img {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
 .footer-logo:hover { opacity: 0.7; }
@@ -950,7 +987,7 @@ footer {
     padding-right: 30px;
   }
 
-  .hero h1 {
+  .hero-overlay h1 {
     letter-spacing: -0.03rem;
   }
 
@@ -995,12 +1032,40 @@ footer {
   .btn-secondary { font-size: 0.875rem; }
 
   .hero-image {
-    margin-bottom: 80px;
-    padding: 12px;
+    margin-bottom: 40px;
+    padding: 0;
+  }
+
+  .hero-img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .scroll-indicator {
+    background: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .scroll-label {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .scroll-arrow {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+
+  .hero-overlay {
+    padding: 20px;
   }
 
   .hero-overlay h1 {
     font-size: 1.5rem;
+    text-align: left;
   }
 
 
@@ -1288,6 +1353,14 @@ footer {
   .modal-block p:not(.keep-br) br { display: none; }
   .concept-caption br { display: none; }
 
+  .concept-caption {
+    padding-top: 40px;
+  }
+
+  .concept-scroll-indicator {
+    padding-bottom: 8px;
+  }
+
   .modal-section-label {
     font-size: 0.72rem;
   }
@@ -1338,6 +1411,23 @@ footer {
   justify-content: center;
   gap: 10px;
   color: var(--text-muted);
+  overflow: hidden;
+  position: relative;
+}
+
+/* 実画像が入った場合はプレースホルダースタイルをリセット */
+.modal-img-placeholder:has(img) {
+  background: none;
+  aspect-ratio: unset;
+  display: block;
+}
+
+.modal-img-placeholder img {
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: var(--radius);
 }
 
 .modal-img-placeholder svg { opacity: 0.35; }
@@ -1422,6 +1512,15 @@ footer {
 .concept-scroll-indicator.hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+@keyframes scroll-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+.concept-scroll-indicator:not(.hidden) {
+  animation: scroll-blink 1.8s ease-in-out infinite;
 }
 
 .concept-text {
@@ -1554,4 +1653,29 @@ footer {
   width: 22px;
   height: 22px;
   flex-shrink: 0;
+}
+
+/* ─── スマホ版 footer-visual ─── */
+@media (max-width: 768px) {
+  .footer-visual img {
+    width: 25%;
+  }
+}
+
+/* ─── スマホ版 aboutモーダル調整 ─── */
+@media (max-width: 480px) {
+  .concept-stage {
+    height: 65dvh;
+    height: 65vh;
+  }
+  .concept-text {
+    padding-bottom: calc(24px + 58%);
+  }
+  .concept-caption {
+    padding-top: 40px;
+  }
+  .concept-scroll-indicator {
+    padding-top: 20px;
+    padding-bottom: 8px;
+  }
 }
