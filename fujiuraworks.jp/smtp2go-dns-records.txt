@@ -1,0 +1,6 @@
+$ORIGIN fujiuraworks.jp.
+$TTL 300
+
+em582036           IN CNAME return.smtp2go.net.
+s582036._domainkey IN CNAME dkim.smtp2go.net.
+link               IN CNAME track.smtp2go.net.
