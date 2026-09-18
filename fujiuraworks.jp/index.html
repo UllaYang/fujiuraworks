@@ -83,7 +83,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@700&family=Kiwi+Maru:wght@300;500&family=Noto+Sans+JP:wght@100..900&family=Shippori+Mincho:wght@700&family=Zen+Antique&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Kaisei+Opti:wght@700&family=Kiwi+Maru:wght@300;500&family=Noto+Sans+JP:wght@100..900&family=Shippori+Mincho:wght@700&family=Zen+Antique&family=Zen+Kurenaido&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -179,6 +179,7 @@
         <div class="feature-card">
           <h3>水漏れ調査／修理</h3>
           <p>経年劣化にともない、蛇口などの水まわり器具や水道配管から水漏れ（漏水）が発生することがあります。こうした水漏れを調査し発見することで、修理やその後の対策につなげます。「どこで水漏れしているか分からない」といった場合もお任せください。</p>
+          <a href="water-leak.html" class="btn-secondary">水漏れ・漏水修理について詳しく見る</a>
         </div>
         <div class="feature-card">
           <h3>器具の取替え／リフォーム</h3>
@@ -215,19 +216,19 @@
       </div>
       <div class="features-grid">
         <div class="feature-card">
-          <h3><span class="sub-font">１．</span>ご依頼／ご相談</h3>
+          <h3><span class="sub-font">1.</span>ご依頼／ご相談</h3>
           <p>まずはお気軽にお問い合わせください。「こんなこと聞いてもいいのかな？」と言うことでも大丈夫です。LINEで無料相談できます。</p>
         </div>
         <div class="feature-card">
-          <h3><span class="sub-font">２．</span>お打合わせ</h3>
+          <h3><span class="sub-font">2.</span>お打合わせ</h3>
           <p>お客様と日程を調整し、事前調査やお打合わせにお伺いします。状況に応じてお見積りや、応急対応など次のフローに進みます。※ご依頼内容によって、お打合わせ等を省略する場合があります。</p>
         </div>
         <div class="feature-card">
-          <h3><span class="sub-font">３．</span>工事施工</h3>
+          <h3><span class="sub-font">3.</span>工事施工</h3>
           <p>お見積り・工事内容に承諾いただいた後、水漏れ調査・工事施工となります。ご依頼内容によって工事日数や着手時期が変動しますので、事前にお打合わせします。</p>
         </div>
         <div class="feature-card">
-          <h3><span class="sub-font">４．</span>完了</h3>
+          <h3><span class="sub-font">4.</span>完了</h3>
           <p>施工内容・取り扱い説明等をご確認いただき工事完了となります。後日請求書をお送りしますので、銀行振込にてお支払いをお願いいたします。</p>
         </div>
       </div>
@@ -803,6 +804,10 @@
     next.classList.add('active');
     setTimeout(() => current.classList.remove('active'), 500);
   }
+
+  // 専用ページのフッターから戻った場合も、該当する案内を開く。
+  if (location.hash === '#modal-about') openModal();
+  if (location.hash === '#modal-privacy') openPrivacyModal();
 </script>
 
 </body>

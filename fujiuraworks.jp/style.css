@@ -604,6 +604,12 @@ section {
   top: 0;
 }
 
+#Flow .sub-font {
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  margin-right: 1em;
+}
+
 .feature-card h3::before,
 .feature-card h3::after {
   position: absolute;
