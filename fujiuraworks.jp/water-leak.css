@@ -17,6 +17,36 @@
   padding: 68px 0 88px;
 }
 
+.leak-page .leak-breadcrumb {
+  margin-bottom: 40px;
+  color: #777;
+  font-family: "Kiwi Maru", serif;
+  font-size: 0.8rem;
+}
+
+.leak-page .leak-breadcrumb ol {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6em;
+  list-style: none;
+}
+
+.leak-page .leak-breadcrumb li + li::before {
+  content: "›";
+  margin-right: 0.6em;
+  color: #aaa;
+}
+
+.leak-page .leak-breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.leak-page .leak-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
 .leak-page .leak-hero h1,
 .leak-page .leak-section h2 {
   font-family: var(--font-display);
@@ -81,6 +111,10 @@
 }
 
 @media (max-width: 768px) {
+  .leak-page .leak-breadcrumb {
+    display: none;
+  }
+
   .leak-page nav:not(.active) {
     opacity: 0;
   }
