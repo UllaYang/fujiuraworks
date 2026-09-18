@@ -13,7 +13,7 @@
 }
 
 .leak-page .leak-hero {
-  max-width: 700px;
+  max-width: var(--max-w);
   padding: 68px 0 88px;
 }
 
@@ -67,7 +67,7 @@
 
 .leak-page .leak-hero-action {
   margin-top: 24px;
-  text-align: left;
+  text-align: center;
 }
 
 .leak-page .leak-trouble-grid {
