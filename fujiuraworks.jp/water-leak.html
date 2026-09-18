@@ -71,7 +71,7 @@
         <div class="section-label">Water Leak</div>
         <h1>たつの市の<br>水漏れ・漏水修理</h1>
         <p>築年数の経過に伴い、住宅でも水漏れ（漏水）のリスクが高まります。水道の水漏れは、蛇口や給湯器など目に見える場所だけで起こるとは限りません。「水漏れしているようだけれど、どこからか分からない」とお困りの方も、藤浦製作所にご相談ください。状況を伺い、調査や修理の方法を一緒に考えます。</p>
-        <div class="leak-hero-action"><a href="https://lin.ee/OzxFEjX" target="_blank" rel="noopener noreferrer" class="btn-cta">公式LINEで相談する</a></div>
+        <div class="leak-hero-action"><a href="#Contact" class="btn-cta" data-contact-trigger>公式LINEで相談する</a></div>
       </section>
 
       <hr class="divider">
@@ -117,7 +117,7 @@
         <div class="section-label">Contact</div>
         <h2><em>お手伝いできることは<br>ありますか？</em></h2>
         <p>＼ お気軽にお問い合わせください ／</p>
-        <a href="https://lin.ee/OzxFEjX" target="_blank" rel="noopener noreferrer" class="btn-cta">公式LINEで相談する</a>
+        <a href="#Contact" class="btn-cta" data-contact-trigger>公式LINEで相談する</a>
       </section>
     </main>
 
@@ -190,12 +190,14 @@
     menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
     document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
 
-    const contactTrigger = document.getElementById('open-contact');
+    const contactTriggers = document.querySelectorAll('#open-contact, [data-contact-trigger]');
     const contactModal = document.getElementById('modal-contact');
     const contactBackdrop = document.getElementById('modal-backdrop');
     const contactClose = document.getElementById('close-contact');
+    let lastContactTrigger = null;
     function openContactModal(event) {
       event.preventDefault();
+      lastContactTrigger = event.currentTarget;
       contactBackdrop.classList.add('active');
       contactModal.classList.add('active');
       contactModal.setAttribute('aria-hidden', 'false');
@@ -208,9 +210,10 @@
       contactModal.classList.remove('active');
       contactModal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      menuButton.focus();
+      if (lastContactTrigger === document.getElementById('open-contact')) menuButton.focus();
+      else lastContactTrigger?.focus();
     }
-    contactTrigger.addEventListener('click', openContactModal);
+    contactTriggers.forEach(trigger => trigger.addEventListener('click', openContactModal));
     contactClose.addEventListener('click', closeContactModal);
     contactModal.addEventListener('click', event => {
       if (event.target === contactModal || event.target === contactModal.querySelector('.modal-panel')) closeContactModal();
