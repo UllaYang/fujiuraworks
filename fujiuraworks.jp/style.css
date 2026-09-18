@@ -714,7 +714,8 @@ section {
   margin-top: 16px;
 }
 
-.showcase-text a {
+.showcase-text a,
+#Service .feature-card .btn-secondary {
   font-family: "Kiwi Maru", serif;
   color: #BABABA;
   line-height: 1.7;
